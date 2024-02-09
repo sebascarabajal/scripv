@@ -1,4 +1,4 @@
-import { CaretDownIcon } from '@radix-ui/react-icons'
+import { AvatarIcon, CaretDownIcon } from '@radix-ui/react-icons'
 import { Button, DropdownMenu } from '@radix-ui/themes'
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react';
@@ -10,6 +10,7 @@ function Dropdown() {
         <DropdownMenu.Root>
             <DropdownMenu.Trigger>
                 <Button variant="soft">
+                    <AvatarIcon></AvatarIcon>
                     {session?.user?.name}
                     <CaretDownIcon />
                 </Button>

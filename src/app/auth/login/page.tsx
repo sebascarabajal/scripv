@@ -7,9 +7,9 @@ function LoginPage() {
   return (
     <>
         <Container size="1" height="100%" className='p-3 md:p-0' >
-            <Flex className='h-screen w-full items-center' >
+            <Flex className='h-screen w-full items-center'>
                 <Card className='w-full p-7' >
-                    <Heading>Inicio de Sesión | Despacho IPVDyU</Heading>
+                    <Heading>Inicio de Sesión | AppTasks</Heading>
                     <SigninForm />
                     <Flex justify="between" my="4">
                         <Text>¿No posees una cuenta? </Text>

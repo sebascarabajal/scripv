@@ -24,6 +24,7 @@ function SigninForm() {
         }
 
         router.push("/dashboard");
+        router.refresh()
     });
 
   return (
