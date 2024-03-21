@@ -12,7 +12,7 @@ function NavBar() {
             <Container>
                 <Flex className='' justify="between" align="center">
                     <NavLink href="/">
-                        <Heading>AppTask</Heading>
+                        <Heading>Despacho</Heading>
                     </NavLink>
                     <ul className='flex gap-x-4 items-center'>
                         {
