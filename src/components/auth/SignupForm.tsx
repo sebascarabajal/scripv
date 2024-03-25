@@ -2,38 +2,42 @@
 import { EnvelopeClosedIcon, LightningBoltIcon, LockClosedIcon, PersonIcon } from '@radix-ui/react-icons'
 import { Button, Flex, TextFieldInput, TextFieldRoot, TextFieldSlot, Text } from '@radix-ui/themes'
 import axios from 'axios'
-import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import {useRouter} from 'next/navigation'
-import {signIn} from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
+import React, { useTransition } from 'react'
 
 function SignupForm() {
-    
-    const {control, handleSubmit, formState:{errors}} = useForm({values:{email:"", password:"", username:""}});
+
+    const { control, handleSubmit, formState: { errors } } = useForm({ values: { email: "", password: "", username: "" } });
 
     const router = useRouter()
 
+    const [isPending, startTransition] = useTransition()
+
     const onSubmit = handleSubmit(async (data) => {
-        const res = await axios.post('/api/auth/register', data)
-        console.log(res)
-    
-        if (res.status === 201) {
-          const result = await signIn('credentials', {
-            email: res.data.email,
-            password: data.password,
-            redirect: false
-          })
-    
-          if (!result?.ok) {
-            console.log(result?.error)
-            return;
-          }
-    
-          router.push('/dashboard')
-          router.refresh()
-        }
-    
-      });
+        startTransition(async () => {
+            const res = await axios.post('/api/auth/register', data)
+            console.log(res)
+
+            if (res.status === 201) {
+                const result = await signIn('credentials', {
+                    email: res.data.email,
+                    password: data.password,
+                    redirect: false
+                })
+
+                if (!result?.ok) {
+                    console.log(result?.error)
+                    return;
+                }
+
+                router.push('/dashboard')
+                router.refresh()
+            }
+        })
+
+    });
 
     return (
         <form onSubmit={onSubmit}>
@@ -43,15 +47,15 @@ function SignupForm() {
                     <TextFieldSlot>
                         <PersonIcon height="16" width="16"></PersonIcon>
                     </TextFieldSlot>
-                    <Controller 
-                        control={control} 
+                    <Controller
+                        control={control}
                         name="username"
-                        rules={{required:{message:"¡Se requiere un Nombre!", value: true}}} 
-                        render={({field}) =>{
-                            return(
+                        rules={{ required: { message: "¡Se requiere un Nombre!", value: true } }}
+                        render={({ field }) => {
+                            return (
                                 <TextFieldInput type='text' placeholder='Jhon Doe' autoFocus {...field}></TextFieldInput>
                             );
-                        }} 
+                        }}
                     />
                 </TextFieldRoot>
 
@@ -62,15 +66,15 @@ function SignupForm() {
                     <TextFieldSlot>
                         <EnvelopeClosedIcon height="16" width="16"></EnvelopeClosedIcon>
                     </TextFieldSlot>
-                    <Controller 
-                        name='email' 
-                        control={control} 
-                        rules={{required:{message:"¡Se requiere un Email!", value: true}}} 
-                        render={({field}) =>{
-                            return(
+                    <Controller
+                        name='email'
+                        control={control}
+                        rules={{ required: { message: "¡Se requiere un Email!", value: true } }}
+                        render={({ field }) => {
+                            return (
                                 <TextFieldInput type='email' placeholder='miCorreo@gmail.com' {...field}></TextFieldInput>
                             );
-                        }} 
+                        }}
                     />
                 </TextFieldRoot>
 
@@ -81,23 +85,23 @@ function SignupForm() {
                     <TextFieldSlot>
                         <LockClosedIcon height="16" width="16"></LockClosedIcon>
                     </TextFieldSlot>
-                    <Controller 
-                        name='password' 
-                        control={control} 
-                        rules={{required:{message:"¡Se requiere una Contraseña!", value: true}, minLength:{message:"¡La contraseña debe ser de 6 carácteres o más!", value:6}}} 
-                        render={({field}) =>{
-                            return(
+                    <Controller
+                        name='password'
+                        control={control}
+                        rules={{ required: { message: "¡Se requiere una Contraseña!", value: true }, minLength: { message: "¡La contraseña debe ser de 6 carácteres o más!", value: 6 } }}
+                        render={({ field }) => {
+                            return (
                                 <TextFieldInput type='password' placeholder='*********' {...field}></TextFieldInput>
                             );
-                        }} 
-                     />
+                        }}
+                    />
                 </TextFieldRoot>
 
                 {errors.password && <Text className='text-red-400'>{errors.password.message}</Text>}
 
                 <Button type='submit'>
                     <LightningBoltIcon height="16" width="16"></LightningBoltIcon>
-                    ¡Crear!
+                    {isPending ? "Creando tu cuenta..." : "¡Crear!"}
                 </Button>
             </Flex>
         </form>

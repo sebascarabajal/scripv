@@ -1,7 +1,7 @@
 "use client"
 import { EnterIcon, EnvelopeClosedIcon, LightningBoltIcon, LockClosedIcon } from '@radix-ui/react-icons'
 import { Button, Flex, Text, TextFieldInput, TextFieldRoot, TextFieldSlot } from '@radix-ui/themes'
-import React from 'react'
+import React, { useTransition } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import {signIn} from 'next-auth/react'
 import {useRouter} from 'next/navigation'
@@ -12,19 +12,21 @@ function SigninForm() {
 
     const router = useRouter()
 
+    const [isPending, startTransition] = useTransition()
+
     const onSubmit = handleSubmit(async (data) => {
-        const res = await signIn("credentials", {
-            redirect: false,
-            email: data.email,
-            password: data.password
-        });
-
-        if(!res?.ok){
-            console.log(res)
-        }
-
-        router.push("/dashboard");
-        router.refresh()
+        startTransition(async ()=>{
+            const res = await signIn("credentials", {
+                redirect: false,
+                email: data.email,
+                password: data.password
+            });
+            if(!res?.ok){
+                console.log(res)
+            }
+            router.push("/dashboard");
+            router.refresh()
+        })
     });
 
   return (
@@ -69,7 +71,7 @@ function SigninForm() {
 
             <Button type='submit' mt="4">
                 <EnterIcon height="16" width="16"></EnterIcon>
-                ¡Entrar!
+                {isPending ? "Cargando..." : "¡Entrar!"}
             </Button>
         </Flex>
     </form>
