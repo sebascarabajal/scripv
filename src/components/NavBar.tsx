@@ -4,11 +4,21 @@ import NavLink from 'next/link'
 import React from 'react'
 import { useSession } from 'next-auth/react';
 import Dropdown from "@/components/Dropdown";
+import { motion } from 'framer-motion';
 
 function NavBar() {
     const { data: session } = useSession()
+    const navVariants = {
+        hidden: { y: -50 },
+        visible: { y: 0, transition: { duration: 0.5 } },
+      };
     return (
-        <nav className=' py-5'>
+        <motion.nav
+        initial="hidden"
+        animate="visible"
+        variants={navVariants}
+        className=' py-5'
+      >
             <Container>
                 <Flex className='' justify="between" align="center">
                     <NavLink href="/">
@@ -48,7 +58,7 @@ function NavBar() {
                     </ul>
                 </Flex>
             </Container>
-        </nav>
+        </motion.nav>
     )
 }
 
