@@ -8,7 +8,7 @@ import {useRouter} from 'next/navigation'
 
 function SigninForm() {
 
-    const {control, handleSubmit, formState:{errors}} = useForm({values:{email:"", password:""}});
+    const {control, setError, handleSubmit, formState:{errors}} = useForm({values:{email:"", password:""}});
 
     const router = useRouter()
 
@@ -24,6 +24,10 @@ function SigninForm() {
             if(!res?.ok){
                 console.log(res)
             }
+            else{
+                const {error} = res
+            }
+
             router.push("/dashboard");
             router.refresh()
         })
@@ -59,7 +63,7 @@ function SigninForm() {
                 <Controller 
                     name='password' 
                     control={control} 
-                    rules={{required:{message:"¡Se requiere contraseña!", value: true}, minLength:{message:"¡La contraseña debe ser de 6 carácteres o más!", value:6}}} 
+                    rules={{required:{message:"¡Se requiere contraseña!", value: true}, minLength:{message:"¡La contraseña debe ser de 6 carácteres o más!", value:6}}}
                     render={({field}) =>{
                         return(
                             <TextFieldInput type='password' placeholder='*********' {...field}></TextFieldInput>
