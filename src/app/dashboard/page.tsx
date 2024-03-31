@@ -9,8 +9,9 @@ function Dashboard() {
   return (
     <Container className='mt-10'>
       <div className='flex justify-between'>
-        <Heading>Tareas</Heading>
-        <Button onClick={() => router.push("/dashboard/tasks/new")}><PlusIcon height="16" width="16"></PlusIcon>Tarea</Button>
+        <Heading>Carga de cuestionarios</Heading>
+        <Button onClick={() => router.push("/dashboard/sheet/new")}><PlusIcon height="16" width="16"></PlusIcon>Encuesta</Button>
+
       </div>
     </Container>
   )

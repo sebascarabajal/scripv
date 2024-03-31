@@ -5,7 +5,6 @@ import React, { useTransition } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { ToastContainer, toast } from 'react-toastify'
 
 function SigninForm() {
 
@@ -33,16 +32,6 @@ function SigninForm() {
                 const { error } = res
             }
 
-            const notify = () => toast.success("Hello coders it was easy!", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            notify();
             router.push("/dashboard");
             router.refresh();
         })
@@ -50,7 +39,6 @@ function SigninForm() {
 
     return (
         <>
-            <ToastContainer />
             <form onSubmit={onSubmit}>
                 <Flex direction="column" gap="3">
                     <label htmlFor='email'>Email</label>
