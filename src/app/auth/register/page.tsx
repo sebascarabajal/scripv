@@ -21,7 +21,7 @@ function RegisterPage() {
             <Container size="1" height="100%" className='p-3 md:p-0' >
                 <Flex className='h-screen w-full items-center' >
                     <Card className='w-full p-7' >
-                        <Heading>Registro | Despacho</Heading>
+                        <Heading>Registro | Censo</Heading>
                         <SignupForm />
                         <Flex justify="between" my="4">
                             <Text>Si ya tienes cuenta</Text>

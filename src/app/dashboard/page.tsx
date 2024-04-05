@@ -8,10 +8,16 @@ function Dashboard() {
   const router = useRouter()
   return (
     <Container className='mt-10'>
-      <div className='flex justify-between'>
+      <div className='flex justify-between py-4'>
         <Heading>Carga de cuestionarios</Heading>
-        <Button onClick={() => router.push("/dashboard/sheet/new")}><PlusIcon height="16" width="16"></PlusIcon>Encuesta</Button>
-
+      </div>
+      <div className='flex justify-between py-4'>
+        <Heading>1° Carga Bloque de Estructura Familiar.</Heading>
+        <Button onClick={() => router.push("/dashboard/sheet/new")}><PlusIcon height="16" width="16"></PlusIcon>Bloque</Button>
+      </div>
+      <div className='flex justify-between py-4'>
+        <Heading>2° Carga resto de bloques</Heading>
+        <Button onClick={() => router.push("/dashboard/sheet/newFamilia")}><PlusIcon height="16" width="16"></PlusIcon>Bloque</Button>
       </div>
     </Container>
   )

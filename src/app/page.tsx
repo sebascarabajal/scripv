@@ -6,10 +6,10 @@ function HomePage() {
   const { data: session } = useSession()
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className=" flex items-center justify-center py-4 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Pagina Principal.</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Censo 2024 IPV</h2>
           <p className="mt-2 text-center text-sm text-white">
             Bienvenido
           </p>
@@ -25,7 +25,7 @@ function HomePage() {
                 </div>
                 <div className="ml-3">
                   <h3 className="text-sm font-medium text-red-800">
-                    ¡No has iniciado sesión!
+                    ¡Para acceder al sistema debes iniciar sesión!
                   </h3>
                 </div>
               </div>
@@ -41,7 +41,7 @@ function HomePage() {
                 </div>
                 <div className="ml-3">
                   <h3 className="text-sm font-medium text-green-800">
-                    Has iniciado sesión!
+                    ¡Has iniciado sesión!
                   </h3>
                 </div>
               </div>

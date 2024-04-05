@@ -1,4 +1,4 @@
-import { AvatarIcon, CaretDownIcon } from '@radix-ui/react-icons'
+import { AvatarIcon, CaretDownIcon, InfoCircledIcon, QuestionMarkCircledIcon } from '@radix-ui/react-icons'
 import { Button, DropdownMenu } from '@radix-ui/themes'
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react';
@@ -16,10 +16,11 @@ function Dropdown() {
                 </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
-                <DropdownMenu.Item>Mi perfil</DropdownMenu.Item>
-                <DropdownMenu.Item>Opciones</DropdownMenu.Item>
+                <DropdownMenu.Item>Información</DropdownMenu.Item>
                 <DropdownMenu.Separator />
-                <DropdownMenu.Item color="red" onClick={() => signOut()}>Salir</DropdownMenu.Item>
+                <DropdownMenu.Item>Soporte</DropdownMenu.Item>
+                <DropdownMenu.Separator />
+                <DropdownMenu.Item className='text-xl' color="red" onClick={() => signOut()}>Salir</DropdownMenu.Item>
             </DropdownMenu.Content>
         </DropdownMenu.Root>
     )
