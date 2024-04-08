@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({ control, name, label, placeholder, rules,
                     rules={rules}
                     render={({ field }) => {
                         return (
-                            <TextFieldInput type={type} placeholder={placeholder} {...field}></TextFieldInput>
+                            <TextFieldInput className='ml-5' type={type} placeholder={placeholder} {...field}></TextFieldInput>
                         );
                     }}
                 />
