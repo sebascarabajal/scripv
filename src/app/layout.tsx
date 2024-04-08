@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import '@radix-ui/themes/styles.css';
-import { Theme } from "@radix-ui/themes"; 
+import { Theme } from "@radix-ui/themes";
 import NavBar from "@/components/NavBar";
 import GlobalContext from "@/context/GlobalContext";
 import Transition from "./template";
@@ -18,12 +18,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="es">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={inter.className}>
         <GlobalContext>
-          <Theme appearance="dark">
+          <Theme>
             <NavBar></NavBar>
             <main>{children}</main>
           </Theme>

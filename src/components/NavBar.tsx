@@ -11,14 +11,14 @@ function NavBar() {
     const navVariants = {
         hidden: { y: -50 },
         visible: { y: 0, transition: { duration: 0.5 } },
-      };
+    };
     return (
         <motion.nav
-        initial="hidden"
-        animate="visible"
-        variants={navVariants}
-        className=' py-5'
-      >
+            initial="hidden"
+            animate="visible"
+            variants={navVariants}
+            className=' py-5'
+        >
             <Container>
                 <Flex className='' justify="between" align="center">
                     <NavLink href="/">
