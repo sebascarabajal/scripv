@@ -1,8 +1,10 @@
 "use client";
 import React from 'react'
-import { Button, Flex, TextFieldInput, TextFieldRoot, TextFieldSlot, Card, Heading } from '@radix-ui/themes'
+import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
+import { UploadIcon } from '@radix-ui/react-icons';
+import Dialog from '@/components/Dialog';
 
 
 function NewSheet() {
@@ -12,7 +14,7 @@ function NewSheet() {
   return (
     <form>
       <div className="flex justify-center">
-        <Heading>Datos Genrales</Heading>
+        <Heading>Datos Generales</Heading>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
@@ -49,13 +51,13 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mx-40 my-5">
         <div>
-          <Input label='1' name='nrocasa' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='1' name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='2' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='3' name='nrocasa' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='3' name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='4' name='nrocasa' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
@@ -111,11 +113,17 @@ function NewSheet() {
         <div>
           <Input label='21' name='nrocasa' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
+      </div>
+      <div className="flex justify-center mb-5">
+        <Heading size={'2'} color='red'>VERIFICAR LOS DATOS CARGADOS ANTES DE ENVIAR</Heading>
+      </div>
+      <div className="flex justify-center mb-5">
+        <Heading size={'2'} color='red'>NO PODRAN SER MODIFICADOS</Heading>
+      </div>
+      <div className="flex justify-center mb-5">
+        <Dialog></Dialog>
+      </div>
 
-      </div>
-      <div className="flex justify-center">
-        <Button>Guardar</Button>
-      </div>
     </form>
   )
 }

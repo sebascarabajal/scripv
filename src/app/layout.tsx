@@ -24,7 +24,7 @@ export default function RootLayout({
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={inter.className}>
         <GlobalContext>
-          <Theme>
+          <Theme appearance="dark">
             <NavBar></NavBar>
             <main>{children}</main>
           </Theme>

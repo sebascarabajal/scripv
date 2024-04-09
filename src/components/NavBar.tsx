@@ -17,12 +17,12 @@ function NavBar() {
             initial="hidden"
             animate="visible"
             variants={navVariants}
-            className=' py-5'
+            className='py-5 mb-10'
         >
             <Container>
                 <Flex className='' justify="between" align="center">
                     <NavLink href="/">
-                        <Heading>Censo IPV</Heading>
+                        <Heading className=''>Censo IPV</Heading>
                     </NavLink>
                     <ul className='flex gap-x-4 items-center'>
                         {
@@ -46,7 +46,7 @@ function NavBar() {
                                 <>
                                     <li>
                                         <Link asChild>
-                                            <NavLink className='text-xl' href="/dashboard">Carga</NavLink>
+                                            <NavLink className='text-xl'  href="/dashboard">Carga</NavLink>
                                         </Link>
                                     </li>
                                     <li>
