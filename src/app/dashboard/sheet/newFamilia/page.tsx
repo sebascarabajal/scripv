@@ -60,58 +60,58 @@ function NewSheet() {
           <Input label='3' name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='4' name='nrocasa' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='4' name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='5' name='nrocasa' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='5' name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='6' name='nrocasa' control={control} placeholder='Discapacidad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='6' name='discapacidad' control={control} placeholder='Discapacidad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='7' name='nrocasa' control={control} placeholder='Dificultad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='7' name='dificultad' control={control} placeholder='Dificultad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='8' name='nrocasa' control={control} placeholder='Certificado Disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='8' name='certificado' control={control} placeholder='Certificado Disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='9' name='nrocasa' control={control} placeholder='Pensión por disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='9' name='pension' control={control} placeholder='Pensión por disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='10' name='nrocasa' control={control} placeholder='Nivel de estudio' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='10' name='nivel_estudio' control={control} placeholder='Nivel de estudio' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='11' name='nrocasa' control={control} placeholder='¿Completo nivel?' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='11' name='estudio_completo' control={control} placeholder='¿Completo nivel?' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='12' name='nrocasa' control={control} placeholder='Motivo si no finalizó' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='12' name='motivo' control={control} placeholder='Motivo si no finalizó' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='13' name='nrocasa' control={control} placeholder='Tipo de establec. educ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='13' name='tipo_establec.' control={control} placeholder='Tipo de establec. educ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='14' name='nrocasa' control={control} placeholder='Lugar del establecimiento' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='14' name='lugar_establec' control={control} placeholder='Lugar del establecimiento' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='15' name='nrocasa' control={control} placeholder='Condic. de activ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='15' name='actividad' control={control} placeholder='Condic. de activ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='16' name='nrocasa' control={control} placeholder='Categoría de trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='16' name='categoria' control={control} placeholder='Categoría de trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='17' name='nrocasa' control={control} placeholder='Motivo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='17' name='motivo_categ' control={control} placeholder='Motivo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='18' name='nrocasa' control={control} placeholder='Lugar de Trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='18' name='lugar_trabajo' control={control} placeholder='Lugar de Trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='19' name='nrocasa' control={control} placeholder='Aportes jubil.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='19' name='aportes_jub' control={control} placeholder='Aportes jubil.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='20' name='nrocasa' control={control} placeholder='Ingreso individual' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='20' name='ingreso_ind' control={control} placeholder='Ingreso individual' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='21' name='nrocasa' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='21' name='cobra_jub' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
       </div>
       <div className="flex justify-center mb-5">
