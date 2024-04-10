@@ -2,8 +2,10 @@ import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { Button } from '@radix-ui/themes';
+import { useForm, Controller } from 'react-hook-form'
 
 const DialogDemo = () => (
+
     <Dialog.Root>
         <Dialog.Trigger asChild>
             <button className="text-black shadow-blue-400 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-blue-500 px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
@@ -30,6 +32,7 @@ const DialogDemo = () => (
                     <button
                         className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
                         aria-label="Close"
+                        type='submit'
                     >
                         <Cross2Icon color='black' />
                     </button>

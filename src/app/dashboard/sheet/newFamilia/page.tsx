@@ -3,16 +3,22 @@ import React from 'react'
 import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
-import { UploadIcon } from '@radix-ui/react-icons';
+import { useRouter } from 'next/navigation'
 import Dialog from '@/components/Dialog';
 
 
 function NewSheet() {
 
-  const { control, formState: { errors } } = useForm({ values: { email: "", password: "" } });
+  const { control, setError, handleSubmit, formState: { errors } } = useForm();
+
+  const router = useRouter()
+
+  const onSubmit = handleSubmit(async (data) => {
+    router.push('/dashboard/sheet/confirm')
+  });
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className="flex justify-center">
         <Heading>Datos Generales</Heading>
       </div>
@@ -121,7 +127,8 @@ function NewSheet() {
         <Heading size={'2'} color='red'>NO PODRAN SER MODIFICADOS</Heading>
       </div>
       <div className="flex justify-center mb-5">
-        <Dialog></Dialog>
+        {/* <Dialog></Dialog> */}
+        <Button type='submit'>GUardar</Button>
       </div>
 
     </form>
