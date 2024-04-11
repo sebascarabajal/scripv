@@ -9,9 +9,10 @@ interface InputProps {
     placeholder: string;
     rules: any;
     type?: string;
+    value?: any;
 }
 
-const Input: React.FC<InputProps> = ({ control, name, label, placeholder, rules, type = 'text' }) => {
+const Input: React.FC<InputProps> = ({ control, name, label, placeholder, rules, type = 'text', value }) => {
     return (
         <>
             <label htmlFor={name}>{label}</label>
@@ -21,6 +22,7 @@ const Input: React.FC<InputProps> = ({ control, name, label, placeholder, rules,
                     name={name}
                     control={control}
                     rules={rules}
+                    defaultValue={value}
                     render={({ field }) => {
                         return (
                             <TextFieldInput className='ml-5' type={type} placeholder={placeholder} {...field}></TextFieldInput>

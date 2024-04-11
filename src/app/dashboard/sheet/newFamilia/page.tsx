@@ -1,21 +1,54 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
-import { useRouter } from 'next/navigation'
-import Dialog from '@/components/Dialog';
-
 
 function NewSheet() {
 
   const { control, setError, handleSubmit, formState: { errors } } = useForm();
 
-  const router = useRouter()
-
-  const onSubmit = handleSubmit(async (data) => {
-    router.push('/dashboard/sheet/confirm')
+  const [datos, setDatos] = useState({
+    sector: 0,
+    manzana: 0,
+    casa: 0,
+    vivienda: 0,
+    hogar: 0,
+    supervidor: '',
+    encuestador: '',
+    responde: '',
+    visita: '',
+    nro_integrante: '',
+    nombre: '',
+    rel_paren: '',
+    genero: '',
+    edad: '',
+    discapacidad: '',
+    dificultad: '',
+    certificado: '',
+    pension: '',
+    nivel_estudio: '',
+    estudio_completo: '',
+    motivo: '',
+    tipo_establec: '',
+    lugar_establec: '',
+    actividad: '',
+    categoria: '',
+    motivo_categ: '',
+    lugar_trabajo: '',
+    aportes_jub: '',
+    ingreso_ind: '',
+    cobra_jub: '',
   });
+
+  const onSubmit = handleSubmit(async(data) => {
+    setDatos(datos);
+    console.log(datos);
+    
+  });
+
+
+
 
   return (
     <form onSubmit={onSubmit}>
@@ -24,7 +57,7 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
-          <Input label='Sector' name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+          <Input label='Sector' value={datos.sector} name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
@@ -57,7 +90,7 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mx-40 my-5">
         <div>
-          <Input label='1' name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='1' name='nro_integrante' value={datos.nro_integrante} control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='2' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
@@ -127,8 +160,7 @@ function NewSheet() {
         <Heading size={'2'} color='red'>NO PODRAN SER MODIFICADOS</Heading>
       </div>
       <div className="flex justify-center mb-5">
-        {/* <Dialog></Dialog> */}
-        <Button type='submit'>GUardar</Button>
+        <Button type='submit'>Guardar</Button>
       </div>
 
     </form>
