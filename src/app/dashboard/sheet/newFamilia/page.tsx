@@ -1,53 +1,22 @@
 "use client";
-import React, { useContext, useState } from 'react'
+
 import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
-import DatosContext from '@/context/DataContext';
+import { useStore } from '@/states/store';
+import { useRouter } from 'next/navigation';
 
 function NewSheet() {
 
   const { control, handleSubmit, formState: { errors } } = useForm();
-
-  // const [datos, setDatos] = useState({
-  //   sector: 0,
-  //   manzana: 0,
-  //   casa: 0,
-  //   vivienda: 0,
-  //   hogar: 0,
-  //   supervisor: "",
-  //   encuestador: "",
-  //   responde: '',
-  //   visita: 0,
-  //   nro_integrante: 0,
-  //   nombre: '',
-  //   rel_paren: 0,
-  //   genero: '',
-  //   edad: 0,
-  //   discapacidad: 0,
-  //   dificultad: 0,
-  //   certificado: 0,
-  //   pension: 0,
-  //   nivel_estudio: 0,
-  //   estudio_completo: 0,
-  //   motivo: 0,
-  //   tipo_establec: 0,
-  //   lugar_establec: 0,
-  //   actividad: 0,
-  //   categoria: 0,
-  //   motivo_categ: 0,
-  //   lugar_trabajo: 0,
-  //   aportes_jub: 0,
-  //   ingreso_ind: 0,
-  //   cobra_jub: 0,
-  // });
-  const { datos, setDatos } = useContext(DatosContext);
+  const datos = useStore(state => state);
+  const setDatos = useStore(state => state.setDatos);
+  const router = useRouter();
 
   const onSubmit = handleSubmit(async (data) => {
     setDatos(datos);
-    console.log(data);
+    console.log(data); 
   });
-
 
   return (
     <form onSubmit={onSubmit}>

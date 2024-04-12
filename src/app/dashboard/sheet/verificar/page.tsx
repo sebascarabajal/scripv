@@ -1,13 +1,17 @@
 "use client"
 import React from 'react'
+import { useStore } from '@/states/store'
 
 
-function Verificar({ datos }) {
+function Verificar() {
+
+  const datos = useStore(state => state);
  
   return (
     <div>
       <h1>Verificar</h1>
-      <p>{datos.actividad}</p>
+      <p>{datos.sector}</p>
+      <p>{datos.manzana}</p>
     </div>  
 
   )

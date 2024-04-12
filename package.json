@@ -20,7 +20,9 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "zustand": "^4.5.2",
+    "zustand-persist": "^0.4.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
