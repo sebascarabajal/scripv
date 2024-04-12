@@ -1,53 +1,52 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
+import DatosContext from '@/context/DataContext';
 
 function NewSheet() {
 
-  const { control, setError, handleSubmit, formState: { errors } } = useForm();
+  const { control, handleSubmit, formState: { errors } } = useForm();
 
-  const [datos, setDatos] = useState({
-    sector: 0,
-    manzana: 0,
-    casa: 0,
-    vivienda: 0,
-    hogar: 0,
-    supervidor: '',
-    encuestador: '',
-    responde: '',
-    visita: '',
-    nro_integrante: '',
-    nombre: '',
-    rel_paren: '',
-    genero: '',
-    edad: '',
-    discapacidad: '',
-    dificultad: '',
-    certificado: '',
-    pension: '',
-    nivel_estudio: '',
-    estudio_completo: '',
-    motivo: '',
-    tipo_establec: '',
-    lugar_establec: '',
-    actividad: '',
-    categoria: '',
-    motivo_categ: '',
-    lugar_trabajo: '',
-    aportes_jub: '',
-    ingreso_ind: '',
-    cobra_jub: '',
-  });
+  // const [datos, setDatos] = useState({
+  //   sector: 0,
+  //   manzana: 0,
+  //   casa: 0,
+  //   vivienda: 0,
+  //   hogar: 0,
+  //   supervisor: "",
+  //   encuestador: "",
+  //   responde: '',
+  //   visita: 0,
+  //   nro_integrante: 0,
+  //   nombre: '',
+  //   rel_paren: 0,
+  //   genero: '',
+  //   edad: 0,
+  //   discapacidad: 0,
+  //   dificultad: 0,
+  //   certificado: 0,
+  //   pension: 0,
+  //   nivel_estudio: 0,
+  //   estudio_completo: 0,
+  //   motivo: 0,
+  //   tipo_establec: 0,
+  //   lugar_establec: 0,
+  //   actividad: 0,
+  //   categoria: 0,
+  //   motivo_categ: 0,
+  //   lugar_trabajo: 0,
+  //   aportes_jub: 0,
+  //   ingreso_ind: 0,
+  //   cobra_jub: 0,
+  // });
+  const { datos, setDatos } = useContext(DatosContext);
 
-  const onSubmit = handleSubmit(async(data) => {
+  const onSubmit = handleSubmit(async (data) => {
     setDatos(datos);
-    console.log(datos);
-    
+    console.log(data);
   });
-
-
 
 
   return (
@@ -60,19 +59,19 @@ function NewSheet() {
           <Input label='Sector' value={datos.sector} name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Manzana' value={datos.manzana} name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Casa' value={datos.casa} name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Vivienda' name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Vivienda' value={datos.vivienda} name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Hogar' name='hogar' control={control} placeholder='Nro de Vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Hogar' value={datos.hogar} name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Supervisor' name='supervidor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
           <Input label='Encuestador' name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
@@ -90,67 +89,67 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mx-40 my-5">
         <div>
-          <Input label='1' name='nro_integrante' value={datos.nro_integrante} control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='1' value={datos.nro_integrante} name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='2' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='2' value={datos.nombre} name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='3' name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='3' value={datos.rel_paren} name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='4' name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='4' value={datos.genero} name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='5' name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='5' value={datos.edad} name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='6' name='discapacidad' control={control} placeholder='Discapacidad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='6' value={datos.discapacidad} name='discapacidad' control={control} placeholder='Discapacidad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='7' name='dificultad' control={control} placeholder='Dificultad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='7' value={datos.dificultad} name='dificultad' control={control} placeholder='Dificultad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='8' name='certificado' control={control} placeholder='Certificado Disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='8' value={datos.certificado} name='certificado' control={control} placeholder='Certificado Disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='9' name='pension' control={control} placeholder='Pensión por disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='9' value={datos.pension} name='pension' control={control} placeholder='Pensión por disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='10' name='nivel_estudio' control={control} placeholder='Nivel de estudio' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='10' value={datos.nivel_estudio} name='nivel_estudio' control={control} placeholder='Nivel de estudio' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='11' name='estudio_completo' control={control} placeholder='¿Completo nivel?' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='11' value={datos.estudio_completo} name='estudio_completo' control={control} placeholder='¿Completo nivel?' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='12' name='motivo' control={control} placeholder='Motivo si no finalizó' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='12' value={datos.motivo} name='motivo' control={control} placeholder='Motivo si no finalizó' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='13' name='tipo_establec.' control={control} placeholder='Tipo de establec. educ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='13' value={datos.tipo_establec} name='tipo_establec.' control={control} placeholder='Tipo de establec. educ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='14' name='lugar_establec' control={control} placeholder='Lugar del establecimiento' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='14' value={datos.lugar_establec} name='lugar_establec' control={control} placeholder='Lugar del establecimiento' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='15' name='actividad' control={control} placeholder='Condic. de activ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='15' value={datos.actividad} name='actividad' control={control} placeholder='Condic. de activ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='16' name='categoria' control={control} placeholder='Categoría de trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='16' value={datos.categoria} name='categoria' control={control} placeholder='Categoría de trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='17' name='motivo_categ' control={control} placeholder='Motivo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='17' value={datos.motivo_categ} name='motivo_categ' control={control} placeholder='Motivo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='18' name='lugar_trabajo' control={control} placeholder='Lugar de Trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='18' value={datos.lugar_trabajo} name='lugar_trabajo' control={control} placeholder='Lugar de Trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='19' name='aportes_jub' control={control} placeholder='Aportes jubil.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='19' value={datos.aportes_jub} name='aportes_jub' control={control} placeholder='Aportes jubil.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='20' name='ingreso_ind' control={control} placeholder='Ingreso individual' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='20' value={datos.ingreso_ind} name='ingreso_ind' control={control} placeholder='Ingreso individual' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='21' name='cobra_jub' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='21' value={datos.cobra_jub} name='cobra_jub' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
       </div>
       <div className="flex justify-center mb-5">

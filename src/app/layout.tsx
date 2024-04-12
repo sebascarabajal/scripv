@@ -5,7 +5,6 @@ import '@radix-ui/themes/styles.css';
 import { Theme } from "@radix-ui/themes";
 import NavBar from "@/components/NavBar";
 import GlobalContext from "@/context/GlobalContext";
-import Transition from "./template";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,16 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+
   return (
     <html lang="es">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={inter.className}>
-        <GlobalContext>
-          <Theme appearance="dark">
-            <NavBar></NavBar>
-            <main>{children}</main>
-          </Theme>
-        </GlobalContext>
+          <GlobalContext>
+            <Theme appearance="dark">
+              <NavBar></NavBar>
+              <main>{children}</main>
+            </Theme>
+          </GlobalContext>
       </body>
     </html>
   );
