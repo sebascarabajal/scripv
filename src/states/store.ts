@@ -1,4 +1,5 @@
 import create from 'zustand'
+import { persist } from 'zustand/middleware'
 
 type State = {
     sector: number,
@@ -34,36 +35,40 @@ type State = {
     setDatos: (data: Partial<State>) => void
 }
 
-export const useStore = create<State>((set) => ({
-    sector: 0,
-    manzana: 0,
-    casa: 0,
-    vivienda: 0,
-    hogar: 0,
-    supervisor: "",
-    encuestador: "",
-    responde: '',
-    visita: 0,
-    nro_integrante: 0,
-    nombre: '',
-    rel_paren: 0,
-    genero: '',
-    edad: 0,
-    discapacidad: 0,
-    dificultad: 0,
-    certificado: 0,
-    pension: 0,
-    nivel_estudio: 0,
-    estudio_completo: 0,
-    motivo: 0,
-    tipo_establec: 0,
-    lugar_establec: 0,
-    actividad: 0,
-    categoria: 0,
-    motivo_categ: 0,
-    lugar_trabajo: 0,
-    aportes_jub: 0,
-    ingreso_ind: 0,
-    cobra_jub: 0,
-    setDatos: (data) => set(state => ({...state, ...data}))
-}))
+export const useStore = create(persist<State>(
+    (set) => ({
+        sector: 0,
+        manzana: 0,
+        casa: 0,
+        vivienda: 0,
+        hogar: 0,
+        supervisor: "",
+        encuestador: "",
+        responde: '',
+        visita: 0,
+        nro_integrante: 0,
+        nombre: '',
+        rel_paren: 0,
+        genero: '',
+        edad: 0,
+        discapacidad: 0,
+        dificultad: 0,
+        certificado: 0,
+        pension: 0,
+        nivel_estudio: 0,
+        estudio_completo: 0,
+        motivo: 0,
+        tipo_establec: 0,
+        lugar_establec: 0,
+        actividad: 0,
+        categoria: 0,
+        motivo_categ: 0,
+        lugar_trabajo: 0,
+        aportes_jub: 0,
+        ingreso_ind: 0,
+        cobra_jub: 0,
+        setDatos: (data) => set(state => ({...state, ...data}))
+    }), {
+    name: 'datos'
+    }
+))

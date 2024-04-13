@@ -14,8 +14,8 @@ function NewSheet() {
   const router = useRouter();
 
   const onSubmit = handleSubmit(async (data) => {
-    setDatos(datos);
-    console.log(data); 
+    setDatos(data);
+    console.log(datos); 
   });
 
   return (
