@@ -1,10 +1,10 @@
 "use client";
-
 import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
 import { useStore } from '@/states/store';
 import { useRouter } from 'next/navigation';
+import { EyeOpenIcon } from '@radix-ui/react-icons';
 
 function NewSheet() {
 
@@ -22,7 +22,7 @@ function NewSheet() {
   return (
     <form onSubmit={onSubmit}>
       <div className="flex justify-center">
-        <Heading>Datos Generales</Heading>
+        <Heading>Carga Estructura Familiar</Heading>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
@@ -123,13 +123,7 @@ function NewSheet() {
         </div>
       </div>
       <div className="flex justify-center mb-5">
-        <Heading size={'2'} color='red'>VERIFICAR LOS DATOS CARGADOS ANTES DE ENVIAR</Heading>
-      </div>
-      <div className="flex justify-center mb-5">
-        <Heading size={'2'} color='red'>NO PODRAN SER MODIFICADOS</Heading>
-      </div>
-      <div className="flex justify-center mb-5">
-        <Button type='submit'>Guardar</Button>
+        <Button type='submit'><EyeOpenIcon></EyeOpenIcon>Vista previa</Button>
       </div>
 
     </form>

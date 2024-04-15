@@ -1,18 +1,23 @@
+"use client"
 import React from 'react'
-import { Button, Container, Flex, Text, TextFieldInput, TextFieldRoot, TextFieldSlot, Card, Heading} from '@radix-ui/themes'
-import { HomeIcon } from '@radix-ui/react-icons'
+import { Heading } from '@radix-ui/themes'
+import Input from '@/components/Input';
+import { useForm } from 'react-hook-form'
 
 function NewSheet() {
+  const { control, handleSubmit, formState: { errors } } = useForm();
   return (
-    <>
-        <Container size="1" height="100%" className='p-3 md:p-0'>
-            <Flex className='h-screen w-full items-center'>
-                <Card className='w-full p-3'>
-                    <Heading>Nuevo Cuestionario</Heading>
-                </Card>
-            </Flex>
-        </Container>
-    </>
+      <form action="">
+        <div className="flex justify-center">
+          <Heading>Carga Caracteristicas Habitacionales del Hogar</Heading>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
+          <div>
+            <Input label='Sector' name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+          </div>
+        </div>
+      </form>
   )
 }
 

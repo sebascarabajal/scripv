@@ -9,10 +9,10 @@ function HomePage() {
     <div className=" flex items-center justify-center py-4 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Censo 2024 IPV</h2>
-          <p className="mt-2 text-center text-sm text-white">
-            Bienvenido
-          </p>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Censo Descubriendo Mi Barrio | IPV 2024</h2>
+          <p className="mt-2 text-center text-xl text-white">¡Bienvenido!</p>
+          <p className="mt-2 text-center text-xl text-red-500">¡Página estrictamente confidencial!</p>
+          <p className="mt-2 text-center text-sm text-gray-300">Desarrolado por DEPTO. CÓMPUTOS</p>
         </div>
         <div>
           {!session && (
