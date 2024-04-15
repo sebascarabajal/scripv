@@ -13,9 +13,10 @@ function NewSheet() {
   const setDatos = useStore(state => state.setDatos);
   const router = useRouter();
 
+
   const onSubmit = handleSubmit(async (data) => {
     setDatos(data);
-    console.log(datos); 
+    router.push('/dashboard/sheet/verificar');
   });
 
   return (
@@ -43,13 +44,13 @@ function NewSheet() {
           <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Encuestador' name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Encuestador' value={datos.encuestador} name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Respondente de la vivienda' name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Respondente de la vivienda' value={datos.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Visita' name='visita' control={control} placeholder='Nro de visita' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Visita' value={datos.visita} name='visita' control={control} placeholder='Nro de visita' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
       </div>
 
