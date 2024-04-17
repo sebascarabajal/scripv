@@ -16,7 +16,7 @@ function NewSheet() {
 
   const onSubmit = handleSubmit(async (data) => {
     setDatos(data);
-    router.push('/dashboard/sheet/verificar');
+    router.push('/dashboard/sheet/verificarFamilia');
   });
 
   return (
