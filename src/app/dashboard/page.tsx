@@ -3,6 +3,7 @@ import { PlusIcon } from '@radix-ui/react-icons'
 import { Container, Heading, Button } from '@radix-ui/themes'
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import { Toaster, toast } from 'sonner'
 
 function Dashboard() {
   const router = useRouter()
@@ -19,6 +20,7 @@ function Dashboard() {
         <Heading>2° Carga resto de bloques</Heading>
         <Button onClick={() => router.push("/dashboard/sheet/new")}><PlusIcon height="16" width="16"></PlusIcon>Bloque</Button>
       </div>
+      <Toaster />
     </Container>
   )
 }
