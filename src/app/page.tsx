@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import { useSession } from 'next-auth/react';
+import { Toaster, toast } from 'sonner';
 
 function HomePage() {
   const { data: session } = useSession()
@@ -47,9 +48,16 @@ function HomePage() {
               </div>
             </div>
           )}
+          <button onClick={() => {
+            toast.error('¡Hola! Bienvenido a la página de inicio.', {
+              description: '¡Has iniciado sesión!',
+            });
+          }}>clcik</button>
+          <Toaster />
         </div>
       </div>
     </div>
+    
   )
 }
 

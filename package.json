@@ -21,6 +21,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
     "react-toastify": "^10.0.5",
+    "sonner": "^1.4.41",
     "zustand": "^4.5.2",
     "zustand-persist": "^0.4.0"
   },
