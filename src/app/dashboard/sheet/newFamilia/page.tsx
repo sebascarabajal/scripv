@@ -13,7 +13,6 @@ function NewSheet() {
   const setDatos = useStore(state => state.setDatos);
   const router = useRouter();
   
-
   const onSubmit = handleSubmit(async (data) => {
     setDatos(data);
     router.push('/dashboard/sheet/verificarFamilia');
