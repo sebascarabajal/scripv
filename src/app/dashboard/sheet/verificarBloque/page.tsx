@@ -6,7 +6,7 @@ import { Box, Button, Heading, Text } from '@radix-ui/themes'
 import { ArrowLeftIcon, UploadIcon } from '@radix-ui/react-icons'
 
 export default function VerificiarBloque() {
-  const datos = useStoreBloque(state => state);
+  const datos = useStoreBloque(State => State);
   const router = useRouter()
 
   const VolverAtras = () => {
