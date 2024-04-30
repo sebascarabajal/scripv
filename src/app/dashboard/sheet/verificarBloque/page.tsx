@@ -1,13 +1,14 @@
 "use client";
 import React from 'react'
-import {useStoreBloque} from '@/states/storeBloque'
+import { useStoreBloque } from '@/states/storeBloque'
 import { useRouter } from 'next/navigation'
 import { Box, Button, Heading, Text } from '@radix-ui/themes'
 import { ArrowLeftIcon, UploadIcon } from '@radix-ui/react-icons'
 
 export default function VerificiarBloque() {
-  const datos = useStoreBloque(state => state)
+  const datos = useStoreBloque(state => state);
   const router = useRouter()
+
   const VolverAtras = () => {
     router.push('/dashboard/sheet/new')
   }

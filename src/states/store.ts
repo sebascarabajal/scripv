@@ -69,6 +69,6 @@ export const useStore = create(persist<State>(
         cobra_jub: 0,
         setDatos: (data) => set(state => ({...state, ...data}))
     }), {
-    name: 'datos'
+    name: 'datosFamilia'
     }
 ))

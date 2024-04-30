@@ -1,7 +1,7 @@
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
-type StateBloque = {
+type State = {
     sector: number,
     manzana: number,
     casa: number,
@@ -33,6 +33,7 @@ type StateBloque = {
     p313: number,
     p314: number,
     p32: number,
+    p321: number,
     p33: number,
     p341: number,
     p342: number,
@@ -83,10 +84,10 @@ type StateBloque = {
     p73: number,
     p74: number,
     p75: number,
-    setBloque: (data: Partial<StateBloque>) => void
+    setBloque: (data: Partial<State>) => void
 }
 
-export const useStoreBloque = create(persist<StateBloque>(
+export const useStoreBloque = create(persist<State>(
     (set) => ({
         sector: 0,
         manzana: 0,
@@ -119,6 +120,7 @@ export const useStoreBloque = create(persist<StateBloque>(
         p313: 0,
         p314: 0,
         p32: 0,
+        p321: 0,
         p33: 0,
         p341: 0,
         p342: 0,
