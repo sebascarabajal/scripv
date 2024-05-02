@@ -69,7 +69,7 @@ function SignupForm() {
                     <Controller
                         name='email'
                         control={control}
-                        rules={{ required: { message: "¡Se requiere un Email!", value: true } }}
+                        rules={{ required: { message: "¡Se requiere un Email!", value: true }}}
                         render={({ field }) => {
                             return (
                                 <TextFieldInput type='email' placeholder='miCorreo@gmail.com' {...field}></TextFieldInput>

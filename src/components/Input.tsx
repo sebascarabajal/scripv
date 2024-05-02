@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextFieldInput, TextFieldRoot, TextFieldSlot } from '@radix-ui/themes'
-import { Controller, useForm } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 
 interface InputProps {
     control: any;
@@ -13,7 +13,10 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ control, name, label, placeholder, rules, type = 'text', value }) => {
+
+
     return (
+
         <>
             <label htmlFor={name}>{label}</label>
             <TextFieldRoot>
@@ -30,6 +33,7 @@ const Input: React.FC<InputProps> = ({ control, name, label, placeholder, rules,
                     }}
                 />
             </TextFieldRoot>
+
         </>
     );
 };
