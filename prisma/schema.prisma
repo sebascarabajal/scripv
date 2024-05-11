@@ -7,22 +7,59 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  username String @unique
-  password String
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  project Project[]
+model Encuestas {
+  encuesta_id Int @id @default(autoincrement())
+  id_Usuario Int
+  sector String
+  manzana String
+  vivienda String
+  casa String
+  hogar String
+  supervisor String
+  censista String
+  respondente String
+  visita Int
+  fecha_carga DateTime
+  Usuarios Usuarios @relation(fields: [id_Usuario], references: [id_Usuario])
+  Miembros_Grupo_Familiar Miembros_Grupo_Familiar[]
+  Preguntas_Representante Preguntas_Representante[]
 }
 
-model Project{
-  id Int @id @default(autoincrement())
-  title String 
-  description String
-  userID Int 
-  user User @relation(fields: [userID], references: [id])
-    createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+model Miembros_Grupo_Familiar {
+  miembro_id Int @id  @default(autoincrement())
+  encuesta_id Int
+  parentesco String
+  Encuestas Encuestas @relation(fields: [encuesta_id], references: [encuesta_id])
+  Preguntas_Miembro Preguntas_Miembro[]
+}
+
+model Preguntas_Miembro {
+  pregunta_miembro_id Int @id @default(autoincrement())
+  miembro_id Int
+  pregunta String
+  tipo_pregunta String
+  valor_respuesta String
+  Miembros_Grupo_Familiar Miembros_Grupo_Familiar @relation(fields: [miembro_id], references: [miembro_id])
+}
+
+model Preguntas_Representante {
+  pregunta_rep_id Int @id @default(autoincrement())
+  encuesta_id Int
+  pregunta String
+  tipo_pregunta String
+  valor_respuesta String
+  opciones_respuesta String
+  Encuestas Encuestas @relation(fields: [encuesta_id], references: [encuesta_id])
+}
+
+model Usuarios {
+  id_Usuario Int @id @default(autoincrement())
+  Nombre String
+  Apellido String
+  Email String @unique
+  Password String
+  Tipo_usuario String 
+  Creado DateTime @default(now())
+  Modificado DateTime  @updatedAt
+  Encuestas Encuestas[]
 }

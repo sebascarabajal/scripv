@@ -9,7 +9,7 @@ import { Toaster, toast } from 'sonner'
 
 function SigninForm() {
 
-    const { control, setError, handleSubmit, formState: { errors } } = useForm({ values: { email: "", password: "" } });
+    const { control, setError, handleSubmit, formState: { errors } } = useForm({ values: { Email: "", Password: "" } });
 
     const router = useRouter()
 
@@ -19,11 +19,11 @@ function SigninForm() {
         startTransition(async () => {
             const res = await signIn("credentials", {
                 redirect: false,
-                email: data.email,
-                password: data.password
+                Email: data.Email,
+                Password: data.Password
             });
             if (res?.error) {
-                setError("password", { message: "¡Credenciales inválidas!", type: "manual" })
+                setError("Password", { message: "¡Credenciales inválidas!", type: "manual" })
                 return;
             }
             if (!res?.ok) {
@@ -54,7 +54,7 @@ function SigninForm() {
                             <EnvelopeClosedIcon height="16" width="16"></EnvelopeClosedIcon>
                         </TextFieldSlot>
                         <Controller
-                            name='email'
+                            name='Email'
                             control={control}
                             rules={{ required: { message: "¡Se requiere email!", value: true } }}
                             render={({ field }) => {
@@ -65,7 +65,7 @@ function SigninForm() {
                         />
                     </TextFieldRoot>
 
-                    {errors.email && <Text className='text-red-400'>{errors.email.message}</Text>}
+                    {errors.Email && <Text className='text-red-400'>{errors.Email.message}</Text>}
 
                     <label htmlFor='password'>Contraseña</label>
                     <TextFieldRoot>
@@ -73,7 +73,7 @@ function SigninForm() {
                             <LockClosedIcon height="16" width="16"></LockClosedIcon>
                         </TextFieldSlot>
                         <Controller
-                            name='password'
+                            name='Password'
                             control={control}
                             rules={{ required: { message: "¡Se requiere contraseña!", value: true } }}
                             render={({ field }) => {
@@ -83,7 +83,7 @@ function SigninForm() {
                             }}
                         />
                     </TextFieldRoot>
-                    {errors.password && <Text className='text-red-400'>{errors.password.message}</Text>}
+                    {errors.Password && <Text className='text-red-400'>{errors.Password.message}</Text>}
 
                     <Button type='submit' mt="4">
                         <EnterIcon height="16" width="16"></EnterIcon>

@@ -5,13 +5,13 @@ import bcrypt from 'bcrypt'
 export async function POST(request: Request){
     const data = await request.json()
 
-    //Encriptando la contraseñña
+    //Encriptando la contraseña
     const salt = await bcrypt.genSalt(10)
-    data.password = await bcrypt.hash(data.password, salt)
+    data.Password = await bcrypt.hash(data.Password, salt)
 
-    const newUser = await prisma.user.create({data});
+    const newUser = await prisma.usuarios.create({data});
 
-    const {password, ...user} = newUser
+    const {Password, ...user} = newUser
 
     return NextResponse.json(user, {status:201})
 }

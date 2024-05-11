@@ -12,35 +12,36 @@ export const authOptions: AuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials: any, req) {
-        const { email, password } = credentials;
+        const { Email, Password } = credentials;
 
-        const userFound = await prisma.user.findUnique({
+        const userFound = await prisma.usuarios.findUnique({
           where: {
-            email,
+            Email,
           },
         });
 
         if (!userFound) throw new Error("Invalid credentials");
 
         const validPassword = await bcrypt.compare(
-          password,
-          userFound.password
+          Password,
+          userFound.Password
         );
 
         if (!validPassword) throw new Error("Invalid credentials");
 
         return {
-          id: userFound.id + "",
-          name: userFound.username,
-          email: userFound.email,
+          id: userFound.id_Usuario + "",
+          name: userFound.Apellido,
+          Email: userFound.Email,
         };
       },
     })
   ],
   callbacks:{
-    async jwt({token, user, account, profile}){
+    async jwt({token, user}){
       if(user){
         token.id = user.id
+        token.name = user.name
       }
       return token;
     },
