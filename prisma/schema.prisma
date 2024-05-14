@@ -7,49 +7,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Encuestas {
-  encuesta_id Int @id @default(autoincrement())
+model preguntas_gral {
+  id_pregunta_gral Int @id @default(autoincrement())
+  pregunta_gral_txt String
+  respuestas_gral respuestas_gral[]
+}
+
+model respuestas_gral {
+  id_respuestas_gral Int @id @default(autoincrement())
+  id_pregunta_gral Int
+  respuesta_gral_valor String
+  preguntas_gral preguntas_gral @relation(fields: [id_pregunta_gral], references: [id_pregunta_gral])
+  encuestas encuestas[]
+}
+
+model encuestas {
+  id_encuesta Int @id @default(autoincrement())
+  id_respuestas_gral Int
+  id_respuestas_estruc Int
   id_Usuario Int
-  sector String
+  fecha DateTime
+  sector Int
   manzana String
-  vivienda String
-  casa String
-  hogar String
-  supervisor String
-  censista String
-  respondente String
-  visita Int
-  fecha_carga DateTime
+  casa Int
+  nro_vivienda Int
+  nro_hogares Int
   Usuarios Usuarios @relation(fields: [id_Usuario], references: [id_Usuario])
-  Miembros_Grupo_Familiar Miembros_Grupo_Familiar[]
-  Preguntas_Representante Preguntas_Representante[]
-}
-
-model Miembros_Grupo_Familiar {
-  miembro_id Int @id  @default(autoincrement())
-  encuesta_id Int
-  parentesco String
-  Encuestas Encuestas @relation(fields: [encuesta_id], references: [encuesta_id])
-  Preguntas_Miembro Preguntas_Miembro[]
-}
-
-model Preguntas_Miembro {
-  pregunta_miembro_id Int @id @default(autoincrement())
-  miembro_id Int
-  pregunta String
-  tipo_pregunta String
-  valor_respuesta String
-  Miembros_Grupo_Familiar Miembros_Grupo_Familiar @relation(fields: [miembro_id], references: [miembro_id])
-}
-
-model Preguntas_Representante {
-  pregunta_rep_id Int @id @default(autoincrement())
-  encuesta_id Int
-  pregunta String
-  tipo_pregunta String
-  valor_respuesta String
-  opciones_respuesta String
-  Encuestas Encuestas @relation(fields: [encuesta_id], references: [encuesta_id])
+  respuestas_gral respuestas_gral @relation(fields: [id_respuestas_gral], references: [id_respuestas_gral])
+  respuestas_estruc respuestas_estruc @relation(fields: [id_respuestas_estruc], references: [id_respuestas_estruc])
 }
 
 model Usuarios {
@@ -57,9 +42,22 @@ model Usuarios {
   Nombre String
   Apellido String
   Email String @unique
-  Password String
-  Tipo_usuario String 
+  Tipo_usuario String
   Creado DateTime @default(now())
-  Modificado DateTime  @updatedAt
-  Encuestas Encuestas[]
+  Modificado DateTime @updatedAt
+  encuestas encuestas[]
+}
+
+model estruc_fam_preg {
+  id_estruct_preg Int @id @default(autoincrement())
+  estruc_preg_txt String
+  respuestas_estruc respuestas_estruc[]
+}
+
+model respuestas_estruc {
+  id_respuestas_estruc Int @id @default(autoincrement())
+  id_estruct_preg Int
+  respuesta_estruc Int
+  estruc_fam_preg estruc_fam_preg @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
+  encuestas encuestas[]
 }

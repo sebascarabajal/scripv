@@ -12,6 +12,10 @@ export default function VerificiarBloque() {
   const VolverAtras = () => {
     router.push('/dashboard/sheet/new')
   }
+
+  const handleSubmit = async () => {
+    
+  }
   return (
     <div>
       <Box className="p-4">
@@ -34,7 +38,7 @@ export default function VerificiarBloque() {
         </div>
         <div className="flex justify-center mt-4 space-x-4">
           <Button color='red' onClick={VolverAtras}><ArrowLeftIcon></ArrowLeftIcon>Volver</Button>
-          <Button color='jade'><UploadIcon color='black' ></UploadIcon>Cargar definitivamente</Button>
+          <Button onSubmit={handleSubmit} color='jade'><UploadIcon color='black' ></UploadIcon>Cargar definitivamente</Button>
         </div>
       </Box>
     </div>
