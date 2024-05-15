@@ -72,7 +72,7 @@ function SignupForm() {
                         rules={{ required: { message: "¡Se requiere un Apellido!", value: true } }}
                         render={({ field }) => {
                             return (
-                                <TextFieldInput type='text' placeholder='Perez' autoFocus {...field}></TextFieldInput>
+                                <TextFieldInput type='text' placeholder='Perez' {...field}></TextFieldInput>
                             );
                         }}
                     />

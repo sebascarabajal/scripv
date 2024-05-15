@@ -24,7 +24,16 @@ export default function Verificar() {
     console.log(datos)
     const res = await axios.post('/api/cargar/familia', {
       datos: {
+        sector: datos.sector,
+        manzana: datos.manzana,
+        casa: datos.casa,
+        vivienda: datos.vivienda,
+        hogar: datos.hogar,
+        supervisor: datos.supervisor,
+        encuestador: datos.encuestador,
+        responde: datos.responde,
         nro_integrante: datos.nro_integrante,
+        nombre: datos.nombre,
         rel_paren: datos.rel_paren,
         genero: datos.genero,
         edad: datos.edad,
@@ -63,7 +72,7 @@ export default function Verificar() {
     <div>
       <Toaster richColors />
       <Box className="p-4">
-        <Heading as="h1" className=" text-2x text-[#7ab1ff] text-center">Datos cargados para casa:  en sector: </Heading>
+        <Heading as="h1" className=" text-2x text-[#7ab1ff] text-center">Datos cargados para casa: {datos.casa}  en sector: {datos.manzana} </Heading>
         <ul className="grid grid-cols-3 gap-4 justify-items-center mt-10 mb-10">
           {Object.entries(datos).map(([key, value]) => {
             if (key === 'setDatos') return null;
