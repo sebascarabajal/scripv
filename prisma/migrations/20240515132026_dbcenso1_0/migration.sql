@@ -37,6 +37,7 @@ CREATE TABLE "Usuarios" (
     "Nombre" TEXT NOT NULL,
     "Apellido" TEXT NOT NULL,
     "Email" TEXT NOT NULL,
+    "Password" TEXT NOT NULL,
     "Tipo_usuario" TEXT NOT NULL,
     "Creado" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "Modificado" TIMESTAMP(3) NOT NULL,
@@ -56,7 +57,7 @@ CREATE TABLE "estruc_fam_preg" (
 CREATE TABLE "respuestas_estruc" (
     "id_respuestas_estruc" SERIAL NOT NULL,
     "id_estruct_preg" INTEGER NOT NULL,
-    "respuesta_estruc" INTEGER NOT NULL,
+    "respuesta_estruc" TEXT NOT NULL,
 
     CONSTRAINT "respuestas_estruc_pkey" PRIMARY KEY ("id_respuestas_estruc")
 );

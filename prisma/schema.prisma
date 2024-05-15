@@ -42,6 +42,7 @@ model Usuarios {
   Nombre String
   Apellido String
   Email String @unique
+  Password String
   Tipo_usuario String
   Creado DateTime @default(now())
   Modificado DateTime @updatedAt
@@ -57,7 +58,7 @@ model estruc_fam_preg {
 model respuestas_estruc {
   id_respuestas_estruc Int @id @default(autoincrement())
   id_estruct_preg Int
-  respuesta_estruc Int
+  respuesta_estruc String
   estruc_fam_preg estruc_fam_preg @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
   encuestas encuestas[]
 }

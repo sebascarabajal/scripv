@@ -15,15 +15,16 @@ function NewSheet() {
   
   const onSubmit = handleSubmit(async (data) => {
     setDatos(data);
+    console.log(data);
     router.push('/dashboard/sheet/verificarFamilia');
   });
-
+  
   return (
     <form onSubmit={onSubmit}>
       <div className="flex justify-center">
         <Heading>Carga Estructura Familiar</Heading>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
+      {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
           <Input label='Sector' value={datos.sector} name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
         </div>
@@ -40,18 +41,18 @@ function NewSheet() {
           <Input label='Hogar' value={datos.hogar} name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Encuestador' value={datos.encuestador} name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Encuestador' value={datos.encuestador} name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Respondente de la vivienda' value={datos.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Respondente de la vivienda' value={datos.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='Visita' value={datos.visita} name='visita' control={control} placeholder='Nro de visita' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex justify-center">
         <Heading>Estructura Familiar</Heading>
@@ -60,14 +61,14 @@ function NewSheet() {
         <div>
           <Input label='1' value={datos.nro_integrante} name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
-        <div>
-          <Input label='2' value={datos.nombre} name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
-        </div>
+        {/* <div>
+          <Input label='2' value={datos.nombre} name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+        </div> */}
         <div>
           <Input label='3' value={datos.rel_paren} name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='4' value={datos.genero} name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='4' value={datos.genero} name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='5' value={datos.edad} name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
