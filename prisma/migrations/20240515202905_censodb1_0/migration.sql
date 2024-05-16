@@ -21,12 +21,10 @@ CREATE TABLE "encuestas" (
     "id_respuestas_gral" INTEGER NOT NULL,
     "id_respuestas_estruc" INTEGER NOT NULL,
     "id_Usuario" INTEGER NOT NULL,
-    "fecha" TIMESTAMP(3) NOT NULL,
-    "sector" INTEGER NOT NULL,
+    "fecha" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "sector" TEXT NOT NULL,
     "manzana" TEXT NOT NULL,
-    "casa" INTEGER NOT NULL,
-    "nro_vivienda" INTEGER NOT NULL,
-    "nro_hogares" INTEGER NOT NULL,
+    "casa" TEXT NOT NULL,
 
     CONSTRAINT "encuestas_pkey" PRIMARY KEY ("id_encuesta")
 );

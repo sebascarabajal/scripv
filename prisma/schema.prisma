@@ -26,12 +26,10 @@ model encuestas {
   id_respuestas_gral Int
   id_respuestas_estruc Int
   id_Usuario Int
-  fecha DateTime
-  sector Int
+  fecha DateTime @default(now())
+  sector String
   manzana String
-  casa Int
-  nro_vivienda Int
-  nro_hogares Int
+  casa String
   Usuarios Usuarios @relation(fields: [id_Usuario], references: [id_Usuario])
   respuestas_gral respuestas_gral @relation(fields: [id_respuestas_gral], references: [id_respuestas_gral])
   respuestas_estruc respuestas_estruc @relation(fields: [id_respuestas_estruc], references: [id_respuestas_estruc])

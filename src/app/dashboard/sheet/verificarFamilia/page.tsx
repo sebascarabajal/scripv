@@ -4,16 +4,13 @@ import { useStore } from '@/states/store'
 import { Box, Button, Heading, Text } from '@radix-ui/themes';
 import { useRouter } from 'next/navigation';
 import { ArrowLeftIcon, UploadIcon } from '@radix-ui/react-icons';
-import { useForm } from 'react-hook-form'
 import axios from 'axios';
 import { Toaster, toast } from 'sonner';
 
 
 export default function Verificar() {
 
-  const { handleSubmit } = useForm()
-
-  const datos = useStore.getState();
+  const datos = useStore(state => state);
   const router = useRouter()
 
   const VolverAtras = () => {
@@ -55,46 +52,50 @@ export default function Verificar() {
         cobra_jub: datos.cobra_jub
       }
     })
+    console.log(res)
 
-    if (res.status === 201) {
+    if(res.status) {
       toast.success('¡Datos cargados correctamente!', {
         description: 'Redirigiendo...',
         position: 'top-center',
       })
+      console.log("Datos cargados correctamente")
       setTimeout(() => {
         router.push("/dashboard");
         router.refresh();
       }, 3000);
     }
+
+    console.log("Datos cargados correctamente")
   }
 
   return (
-    <div>
-      <Toaster richColors />
-      <Box className="p-4">
-        <Heading as="h1" className=" text-2x text-[#7ab1ff] text-center">Datos cargados para casa: {datos.casa}  en sector: {datos.manzana} </Heading>
-        <ul className="grid grid-cols-3 gap-4 justify-items-center mt-10 mb-10">
-          {Object.entries(datos).map(([key, value]) => {
-            if (key === 'setDatos') return null;
-            return (
-              <li key={key} className="mb-2">
-                <Text as="span" className="font-bold">{key}: {value.toLocaleString()}</Text>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="flex justify-center mb-5">
-          <Heading size={'2'} color='red'>VERIFICAR LOS DATOS CARGADOS ANTES DE ENVIAR</Heading>
-        </div>
-        <div className="flex justify-center mb-5">
-          <Heading size={'2'} color='red'>NO PODRAN SER MODIFICADOS</Heading>
-        </div>
-        <div className="flex justify-center mt-4 space-x-4">
-          <Button color='red' onClick={VolverAtras}><ArrowLeftIcon></ArrowLeftIcon>Volver</Button>
-          <Button color='jade' onClick={Senddatos} ><UploadIcon color='black' ></UploadIcon>Cargar definitivamente</Button>
-        </div>
-      </Box>
-    </div>
+      <div>
+        <Toaster richColors />
+        <Box className="p-4">
+          <Heading className=" text-2x text-[#7ab1ff] text-center">Datos cargados para casa: en sector: </Heading>
+          <ul className="grid grid-cols-3 gap-4 justify-items-center mt-10 mb-10">
+            {Object.entries(datos).map(([key, value]) => {
+              if (key === 'setDatos') return null;
+              return (
+                <li key={key} className="mb-2">
+                  <Text as="span" className="font-bold">{key}: {value.toLocaleString()}</Text>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="flex justify-center mb-5">
+            <Heading size={'2'} color='red'>VERIFICAR LOS DATOS CARGADOS ANTES DE ENVIAR</Heading>
+          </div>
+          <div className="flex justify-center mb-5">
+            <Heading size={'2'} color='red'>NO PODRAN SER MODIFICADOS</Heading>
+          </div>
+          <div className="flex justify-center mt-4 space-x-4">
+            <Button color='red' onClick={VolverAtras}><ArrowLeftIcon></ArrowLeftIcon>Volver</Button>
+            <Button color='jade' onClick={Senddatos} ><UploadIcon color='black' ></UploadIcon>Cargar definitivamente</Button>
+          </div>
+        </Box>
+      </div>
   )
 }
 
