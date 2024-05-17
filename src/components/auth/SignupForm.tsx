@@ -1,5 +1,5 @@
 "use client"
-import { BackpackIcon, EnvelopeClosedIcon, LightningBoltIcon, LockClosedIcon, PersonIcon } from '@radix-ui/react-icons'
+import { BackpackIcon, EnvelopeClosedIcon, LightningBoltIcon, Link2Icon, LockClosedIcon, PersonIcon } from '@radix-ui/react-icons'
 import { Button, Flex, TextFieldInput, TextFieldRoot, TextFieldSlot, Text } from '@radix-ui/themes'
 import axios from 'axios'
 import { useForm, Controller } from 'react-hook-form'
@@ -9,7 +9,7 @@ import React, { useTransition } from 'react'
 
 function SignupForm() {
 
-    const { control, handleSubmit, formState: { errors } } = useForm({ values: { Email: "", Password: "", Nombre: "", Apellido: "", Tipo_usuario:"" } });
+    const { control, handleSubmit, formState: { errors } } = useForm({ values: {id_Usuario: "" , Email: "", Password: "", Nombre: "", Apellido: "", Tipo_usuario: "" } });
 
     const router = useRouter()
 
@@ -21,7 +21,9 @@ function SignupForm() {
             console.log(res)
 
             if (res.status === 201) {
+                console.log('Usuario creado con éxito')
                 const result = await signIn('credentials', {
+                    id_Usuario: res.data.id_Usuario,
                     Email: res.data.Email,
                     Password: data.Password,
                     redirect: false
@@ -42,6 +44,25 @@ function SignupForm() {
     return (
         <form onSubmit={onSubmit}>
             <Flex direction="column" gap="2">
+                <label htmlFor='id_Usuario'>ID del Usuario</label>
+                <TextFieldRoot>
+                    <TextFieldSlot>
+                        <Link2Icon height="16" width="16" />
+                    </TextFieldSlot>
+                    <Controller
+                        control={control}
+                        name="id_Usuario"
+                        rules={{ required: { message: "¡Se requiere un ID!", value: true } }}
+                        render={({ field }) => {
+                            return (
+                                <TextFieldInput type='number' placeholder='1234' autoFocus {...field}></TextFieldInput>
+                            );
+                        }}
+                    />
+                </TextFieldRoot>
+
+                {errors.id_Usuario && <Text className='text-red-400'>{errors.id_Usuario.message}</Text>}
+
                 <label htmlFor='name'>Nombre</label>
                 <TextFieldRoot>
                     <TextFieldSlot>
@@ -53,7 +74,7 @@ function SignupForm() {
                         rules={{ required: { message: "¡Se requiere un Nombre!", value: true } }}
                         render={({ field }) => {
                             return (
-                                <TextFieldInput type='text' placeholder='Juan' autoFocus {...field}></TextFieldInput>
+                                <TextFieldInput type='text' placeholder='Juan' {...field}></TextFieldInput>
                             );
                         }}
                     />

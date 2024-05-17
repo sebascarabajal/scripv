@@ -58,10 +58,6 @@ function New() {
             <Input label='Respondente de la vivienda' value={data.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
             {errors.responde && <span className="text-red-600">{errors.responde.message}</span>}
           </div>
-          <div>
-            <Input label='Visita' value={data.visita} name='visita' control={control} placeholder='Nro de visita' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
-            {errors.visita && <span className="text-red-600">{errors.visita.message}</span>}
-          </div>
         </div>
 
         <div className="flex justify-center my-10">

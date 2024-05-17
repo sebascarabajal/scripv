@@ -35,7 +35,7 @@ model Encuestas {
 }
 
 model Usuarios {
-  id_Usuario Int @id
+  id_Usuario Int @id 
   Nombre String
   Apellido String
   Email String
