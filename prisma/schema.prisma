@@ -14,49 +14,50 @@ model preguntas_gral {
 }
 
 model respuestas_gral {
-  id_respuestas_gral Int @id @default(autoincrement())
+  CodCasa String
   id_pregunta_gral Int
   respuesta_gral_valor String
+  Encuestas Encuestas @relation(fields: [CodCasa], references: [CodCasa])
   preguntas_gral preguntas_gral @relation(fields: [id_pregunta_gral], references: [id_pregunta_gral])
-  encuestas encuestas[]
+
+  @@id([CodCasa, id_pregunta_gral])
 }
 
-model encuestas {
-  id_encuesta Int @id @default(autoincrement())
+model Encuestas {
+  CodCasa String @id
+  id_Usuario Int
   id_respuestas_gral Int
   id_respuestas_estruc Int
-  id_Usuario Int
   fecha DateTime @default(now())
-  sector String
-  manzana String
-  casa String
   Usuarios Usuarios @relation(fields: [id_Usuario], references: [id_Usuario])
-  respuestas_gral respuestas_gral @relation(fields: [id_respuestas_gral], references: [id_respuestas_gral])
-  respuestas_estruc respuestas_estruc @relation(fields: [id_respuestas_estruc], references: [id_respuestas_estruc])
+  respuestas_gral respuestas_gral[]
+  respuestas_estruc respuestas_estruc[]
 }
 
 model Usuarios {
-  id_Usuario Int @id @default(autoincrement())
+  id_Usuario Int @id
   Nombre String
   Apellido String
-  Email String @unique
+  Email String
   Password String
   Tipo_usuario String
   Creado DateTime @default(now())
-  Modificado DateTime @updatedAt
-  encuestas encuestas[]
+  Modificado DateTime @default(now())
+  Encuestas Encuestas[]
 }
 
-model estruc_fam_preg {
+model preguntas_estruc {
   id_estruct_preg Int @id @default(autoincrement())
   estruc_preg_txt String
   respuestas_estruc respuestas_estruc[]
 }
 
 model respuestas_estruc {
-  id_respuestas_estruc Int @id @default(autoincrement())
+  CodCasa String
   id_estruct_preg Int
-  respuesta_estruc String
-  estruc_fam_preg estruc_fam_preg @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
-  encuestas encuestas[]
+  respuesta_estruc Int
+  Encuestas Encuestas @relation(fields: [CodCasa], references: [CodCasa])
+  preguntas_estruc preguntas_estruc @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
+
+  @@id([CodCasa, id_estruct_preg])
 }

@@ -2,6 +2,7 @@
 import { Button, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
+import InputSelect from '@/components/InputSelect';
 import { useStore } from '@/states/store';
 import { useRouter } from 'next/navigation';
 import { EyeOpenIcon } from '@radix-ui/react-icons';
@@ -26,7 +27,7 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
-          <Input label='Sector' value={datos.sector} name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <InputSelect />
         </div>
         <div>
           <Input label='Manzana' value={datos.manzana} name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
