@@ -9,7 +9,7 @@ import React, { useTransition } from 'react'
 
 function SignupForm() {
 
-    const { control, handleSubmit, formState: { errors } } = useForm({ values: {id_Usuario: "" , Email: "", Password: "", Nombre: "", Apellido: "", Tipo_usuario: "" } });
+    const { control, handleSubmit, formState: { errors } } = useForm({ values: {id_censista: "" , Email: "", Password: "", Nombre: "", Apellido: "", Tipo_usuario: "" } });
 
     const router = useRouter()
 
@@ -23,7 +23,6 @@ function SignupForm() {
             if (res.status === 201) {
                 console.log('Usuario creado con éxito')
                 const result = await signIn('credentials', {
-                    id_Usuario: res.data.id_Usuario,
                     Email: res.data.Email,
                     Password: data.Password,
                     redirect: false
@@ -44,14 +43,14 @@ function SignupForm() {
     return (
         <form onSubmit={onSubmit}>
             <Flex direction="column" gap="2">
-                <label htmlFor='id_Usuario'>ID del Usuario</label>
+                <label htmlFor='id_censista'>ID del Censista</label>
                 <TextFieldRoot>
                     <TextFieldSlot>
                         <Link2Icon height="16" width="16" />
                     </TextFieldSlot>
                     <Controller
                         control={control}
-                        name="id_Usuario"
+                        name="id_censista"
                         rules={{ required: { message: "¡Se requiere un ID!", value: true } }}
                         render={({ field }) => {
                             return (
@@ -61,7 +60,7 @@ function SignupForm() {
                     />
                 </TextFieldRoot>
 
-                {errors.id_Usuario && <Text className='text-red-400'>{errors.id_Usuario.message}</Text>}
+                {errors.id_censista && <Text className='text-red-400'>{errors.id_censista.message}</Text>}
 
                 <label htmlFor='name'>Nombre</label>
                 <TextFieldRoot>

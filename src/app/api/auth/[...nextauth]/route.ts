@@ -12,12 +12,11 @@ export const authOptions: AuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials: any, req) {
-        const { id_Usuario, Password, Email } = credentials;
+        const { Email, Password } = credentials;
 
         const userFound = await prisma.usuarios.findUnique({
           where: {
-            id_Usuario,
-            Email
+            Email,
           },
         });
 

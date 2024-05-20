@@ -8,13 +8,13 @@ datasource db {
 }
 
 model preguntas_gral {
-  id_pregunta_gral Int @id @default(autoincrement())
+  id_pregunta_gral Int     @id @default(autoincrement())
   pregunta_gral_txt String
-  respuestas_gral respuestas_gral[]
+  respuestas_gral   respuestas_gral[]
 }
 
 model respuestas_gral {
-  CodCasa String
+  CodCasa String 
   id_pregunta_gral Int
   respuesta_gral_valor String
   Encuestas Encuestas @relation(fields: [CodCasa], references: [CodCasa])
@@ -24,25 +24,23 @@ model respuestas_gral {
 }
 
 model Encuestas {
-  CodCasa String @id
-  id_Usuario Int
-  id_respuestas_gral Int
-  id_respuestas_estruc Int
+  CodCasa String  @id
+  id_Usuario Int[]
   fecha DateTime @default(now())
-  Usuarios Usuarios @relation(fields: [id_Usuario], references: [id_Usuario])
-  respuestas_gral respuestas_gral[]
   respuestas_estruc respuestas_estruc[]
+  respuestas_gral respuestas_gral[]
+  Usuarios Usuarios[]
 }
 
 model Usuarios {
-  id_Usuario Int @id 
+  id_Usuario  Int @id @default(autoincrement())
+  id_censista Int 
   Nombre String
   Apellido String
-  Email String
+  Email String @unique
   Password String
-  Tipo_usuario String
+  Tipo_usuario String 
   Creado DateTime @default(now())
-  Modificado DateTime @default(now())
   Encuestas Encuestas[]
 }
 
@@ -56,7 +54,7 @@ model respuestas_estruc {
   CodCasa String
   id_estruct_preg Int
   respuesta_estruc Int
-  Encuestas Encuestas @relation(fields: [CodCasa], references: [CodCasa])
+  Encuestas Encuestas        @relation(fields: [CodCasa], references: [CodCasa])
   preguntas_estruc preguntas_estruc @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
 
   @@id([CodCasa, id_estruct_preg])
