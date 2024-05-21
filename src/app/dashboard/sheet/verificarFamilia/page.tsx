@@ -18,7 +18,6 @@ export default function Verificar() {
   }
 
   const Senddatos = async () => {
-    console.log(datos)
     const res = await axios.post('/api/cargar/familia', {
       datos: {
         sector: datos.sector,

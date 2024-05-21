@@ -27,7 +27,7 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
-            <InputRadix value={datos.sector} name='sector' label='das' control={control} />
+            <InputRadix value={datos.sector} name='sector' label='Sector: ' control={control} />
         </div>
         <div>
           <Input label='Manzana' value={datos.manzana} name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
