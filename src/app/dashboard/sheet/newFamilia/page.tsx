@@ -42,13 +42,13 @@ function NewSheet() {
           <Input label='Hogar' value={datos.hogar} name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Encuestador' value={datos.encuestador} name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Encuestador' value={datos.encuestador} name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Respondente de la vivienda' value={datos.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Respondente de la vivienda' value={datos.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
       </div>
 

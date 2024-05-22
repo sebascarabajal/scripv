@@ -8,7 +8,7 @@ datasource db {
 }
 
 model preguntas_gral {
-  id_pregunta_gral Int @id
+  id_pregunta_gral Int @id @default(autoincrement())
   pregunta_gral_txt String
   respuestas_gral respuestas_gral[]
 }
