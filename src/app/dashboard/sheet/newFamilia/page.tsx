@@ -9,9 +9,42 @@ import { EyeOpenIcon } from '@radix-ui/react-icons';
 
 function NewSheet() {
 
-  const { control, handleSubmit, formState: { errors } } = useForm();
   const datos = useStore(state => state);
   const setDatos = useStore(state => state.setDatos);
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    values:{
+      sector: "",
+      manzana: "",
+      casa: "",
+      vivienda: "",
+      hogar: "",
+      supervisor: "",
+      encuestador: "",
+      responde: "",
+      nro_integrante: "",
+      nombre: "",
+      rel_paren: "",
+      genero: "",
+      edad: "",
+      discapacidad: "",
+      dificultad: "",
+      certificado: "",
+      pension: "",
+      nivel_estudio: "",
+      estudio_completo: "",
+      motivo: "",
+      tipo_establec: "",
+      lugar_establec: "",
+      actividad: "",
+      categoria: "",
+      motivo_categ: "",
+      lugar_trabajo: "",
+      aportes_jub: "",
+      ingreso_ind: "",
+      cobra_jub: ""
+    }
+  });
+
   const router = useRouter();
   
   const onSubmit = handleSubmit(async (data) => {

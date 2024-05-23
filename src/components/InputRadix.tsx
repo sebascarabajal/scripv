@@ -4,9 +4,9 @@ import { Control, Controller, FieldValues, RegisterOptions } from 'react-hook-fo
 interface InputRadixProps {
   name: string;
   label: string;
-  control: Control<FieldValues>;
+  control: any;
   rules?: RegisterOptions;
-  value?: any;
+  value?: string;
 }
 
 const InputRadix: React.FC<InputRadixProps> = ({ name, label, control, rules, value }) => {

@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const codCasa = datos.sector + datos.manzana + datos.casa + datos.vivienda
 
     console.log(datos)
-    console.log(codCasa)
+    console.log(datos.hogar)
 
     const session = await getServerSession(authOptions)
 
@@ -26,15 +26,15 @@ export async function POST(request: Request) {
     try{
         prisma.$transaction(async (prisma) => {
             const newBloque = await prisma.$queryRaw`
-                INSERT INTO respuestas_estruc("CodCasa", "id_pregunta_gral", "respuesta_gral_valor")
+                INSERT INTO respuestas_gral("CodCasa", "id_pregunta_gral", "respuesta_gral_valor")
                 VALUES 
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 75), ${datos.sector}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 76), ${datos.manzana}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 77), ${datos.casa}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 78), ${datos.vivienda}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 79), ${datos.Hogar}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 80), ${datos.Supervisor}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 81), ${datos.Encuestador}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 79), ${datos.hogar}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 80), ${datos.supervisor}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 81), ${datos.encuestador}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 82), ${datos.responde}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 1), ${datos.p20}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 2), ${datos.p21}),
@@ -94,21 +94,22 @@ export async function POST(request: Request) {
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 56), ${datos.p63}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 56), ${datos.p631}),
                 (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 57), ${datos.p64}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 57), ${datos.p641}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 58), ${datos.p65}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 59), ${datos.p66}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 59), ${datos.p661}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 60), ${datos.p67}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 61), ${datos.p68}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 62), ${datos.p69}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 63), ${datos.p70}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 63), ${datos.p701}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 64), ${datos.p71}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 64), ${datos.p711}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 65), ${datos.p72}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 66), ${datos.p73}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 67), ${datos.p74}),
-                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 68), ${datos.p75})
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 58), ${datos.p641}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 59), ${datos.p65}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 60), ${datos.p66}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 61), ${datos.p661}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 62), ${datos.p67}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 63), ${datos.p68}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 64), ${datos.p69}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 65), ${datos.p70}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 66), ${datos.p70}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 67), ${datos.p701}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 68), ${datos.p71}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 69), ${datos.p711}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 70), ${datos.p72}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 71), ${datos.p73}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 72), ${datos.p74}),
+                (${codCasa}, (select id_pregunta_gral FROM preguntas_gral WHERE id_pregunta_gral = 73), ${datos.p75})
             `
         })
     }

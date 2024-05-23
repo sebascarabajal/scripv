@@ -2,6 +2,7 @@
 import React from 'react'
 import { Button, Heading } from '@radix-ui/themes'
 import Input from '@/components/Input';
+import InputRadix from '@/components/InputRadix';
 import { useForm } from 'react-hook-form'
 import { EyeOpenIcon } from '@radix-ui/react-icons';
 import { useStoreBloque } from '@/states/storeBloque'
@@ -27,7 +28,7 @@ function New() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='Sector' value={data.sector} name='sector' control={control} placeholder='Nro de sector' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
+            <InputRadix value={data.sector} name='sector' label='Sector: ' control={control} />
             {errors.sector && <span className="text-red-600">{errors.sector.message}</span>}
           </div>
           <div>
