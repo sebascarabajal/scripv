@@ -5,7 +5,6 @@ import React, { useTransition } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { Toaster, toast } from 'sonner'
 
 function SigninForm() {
 
@@ -32,15 +31,7 @@ function SigninForm() {
             else {
                 const { error } = res
             }
-            toast.success('¡Bienvenido! Espere...', {
-                description: 'Entrando al sistema...',
-                position: 'top-center',
-                
-            });
-            setTimeout(() => {
-                router.push("/dashboard");
-                router.refresh();
-            }, 3000);
+            router.push("/dashboard");
         })
     });
 
@@ -89,7 +80,6 @@ function SigninForm() {
                         <EnterIcon height="16" width="16"></EnterIcon>
                         {isPending ? "Cargando..." : "¡Entrar!"}
                     </Button>
-                    <Toaster richColors />
                 </Flex>
             </form>
         </>

@@ -1,4 +1,4 @@
-import prisma from "@/libs/prisma";
+import prisma from "@/supabase/prisma";
 import NextAuth, { AuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'

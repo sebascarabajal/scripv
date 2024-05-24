@@ -3,10 +3,12 @@ import { Button, DropdownMenu } from '@radix-ui/themes'
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react';
 import { Toaster, toast } from 'sonner';
+import { useRouter } from 'next/navigation'
 
 
 function Dropdown() {
     const { data: session } = useSession()
+    const router = useRouter()
     const CerrarSesion = () => {
         toast.success('¡Nos vemos pronto!', {
             description: 'Saliendo del sistema...',
@@ -16,7 +18,10 @@ function Dropdown() {
         setTimeout(() => {
             signOut()
         }, 2000);
-        
+    }
+
+    const redirect = () => {
+        router.push('/docs')
     }
 
     return (
@@ -29,9 +34,7 @@ function Dropdown() {
                 </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
-                <DropdownMenu.Item>Información</DropdownMenu.Item>
-                <DropdownMenu.Separator />
-                <DropdownMenu.Item>Soporte</DropdownMenu.Item>
+                <DropdownMenu.Item onClick={() => redirect()}>Información</DropdownMenu.Item>
                 <DropdownMenu.Separator />
                 <DropdownMenu.Item className='text-xl' color="red" onClick={() => CerrarSesion()}>Salir</DropdownMenu.Item>
             </DropdownMenu.Content>
