@@ -67,15 +67,15 @@ function New() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40">
           <div>
-            <Input label='20' value={data.p20} name='p20' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
+            <Input label='20.Habitabilidad' value={data.p20} name='p20' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
             {errors.p20 && <span className="text-red-600">{errors.p20.message}</span>}
           </div>
           <div>
-            <Input label='21' value={data.p21} name='p21' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
+            <Input label='21.Este hogar es...' value={data.p21} name='p21' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
             {errors.p21 && <span className="text-red-600">{errors.p21.message}</span>}
           </div>
           <div>
-            <Input label='22' value={data.p22} name='p22' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
+            <Input label='22.Documentacion' value={data.p22} name='p22' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: {value: /^[0-9]*$/, message: "Solo se permiten números"}}} type='text'></Input>
             {errors.p22 && <span className="text-red-600">{errors.p22.message}</span>}
           </div >
         </div >
