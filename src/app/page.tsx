@@ -5,7 +5,7 @@ function HomePage() {
     <main>
       <Hero />
     </main>
-    
+
   )
 }
 

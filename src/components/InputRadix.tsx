@@ -20,6 +20,7 @@ const InputRadix: React.FC<InputRadixProps> = ({ name, label, control, rules, va
         defaultValue={value}
         render={({ field }) => (
           <select {...field}>
+            <option value="">Seleccione un Sector</option>
             <option value="486">600 VIV. LOMAS DE TAFI</option>
             <option value="618">LOMAS SECTOR VI 287 VIV.</option>
             <option value="619">LOMAS SECTOR VII 294 VIV.</option>
@@ -39,7 +40,7 @@ const InputRadix: React.FC<InputRadixProps> = ({ name, label, control, rules, va
             <option value="631">LOMAS SECTOR XIX 273 VIV.</option>
             <option value="632">LOMAS SECTOR XX 266 VIV.</option>
             <option value="692">166 VIV. LOMAS DE TAFI</option>
-            <option value="382">LOS POCITOS 448 VIV-SEC.A/342V  </option>
+            <option value="382">LOS POCITOS 448 VIV-SEC.A/342V</option>
           </select>
         )}
       />

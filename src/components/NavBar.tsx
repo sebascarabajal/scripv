@@ -22,7 +22,7 @@ function NavBar() {
             <Container>
                 <Flex className='' justify="between" align="center">
                     <NavLink href="/">
-                        <Heading className=''>Censo IPV</Heading>
+                        <Heading className='text-white'>Censo IPV</Heading>
                     </NavLink>
                     <ul className='flex gap-x-4 items-center'>
                         {

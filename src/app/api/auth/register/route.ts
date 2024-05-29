@@ -2,11 +2,9 @@ import { NextResponse } from "next/server";
 import prisma from "@/supabase/prisma";
 import bcrypt from 'bcrypt'
 
-export async function POST(request: Request){
+export async function POST(request: Request){ 
     const data = await request.json()
-
-    console.log(data)
-
+    console.log(data.Nombre)
     const salt = await bcrypt.genSalt(10)
     data.Password = await bcrypt.hash(data.Password, salt)
 

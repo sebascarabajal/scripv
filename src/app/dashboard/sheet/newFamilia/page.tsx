@@ -1,18 +1,20 @@
-"use client";
-import { Button, Heading } from '@radix-ui/themes'
+"use client"
+import { AlertDialog, Button, Flex, Heading } from '@radix-ui/themes'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input';
 import InputRadix from '@/components/InputRadix';
 import { useStore } from '@/states/store';
 import { useRouter } from 'next/navigation';
-import { EyeOpenIcon } from '@radix-ui/react-icons';
+import { ArrowRightIcon, DoubleArrowUpIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { Toaster, toast } from 'sonner';
+import axios from 'axios';
+import { useRef } from 'react';
+import { on } from 'stream';
 
 function NewSheet() {
 
-  const datos = useStore(state => state);
-  const setDatos = useStore(state => state.setDatos);
   const { control, handleSubmit, formState: { errors } } = useForm({
-    values:{
+    values: {
       sector: "",
       manzana: "",
       casa: "",
@@ -46,42 +48,61 @@ function NewSheet() {
   });
 
   const router = useRouter();
-  
+
+  const submit = () => {
+    onSubmit()
+  }
+
+
   const onSubmit = handleSubmit(async (data) => {
-    setDatos(data);
-    console.log(data);
-    router.push('/dashboard/sheet/verificarFamilia');
-  });
-  
+    console.log(data)
+    const res = await axios.post('/api/cargar/familia', data)
+    console.log(res)
+
+    if (res.status) {
+      toast.success('¡Datos cargados correctamente!', {
+        description: 'Redirigiendo...',
+        position: 'top-center',
+      })
+      console.log("Datos cargados correctamente")
+      setTimeout(() => {
+        router.refresh();
+      }, 3000);
+    }
+
+    console.log("Datos cargados correctamente")
+  })
+
   return (
     <form onSubmit={onSubmit}>
+      <Toaster richColors />
       <div className="flex justify-center">
         <Heading>Carga Estructura Familiar</Heading>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
         <div>
-            <InputRadix value={datos.sector} name='sector' label='Sector: ' control={control} />
+          <InputRadix name='sector' label='Sector: ' control={control} />
         </div>
         <div>
-          <Input label='Manzana' value={datos.manzana} name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Manzana'  name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Casa' value={datos.casa} name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Vivienda' value={datos.vivienda} name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Vivienda' name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Hogar' value={datos.hogar} name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Hogar' name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='Supervisor' value={datos.supervisor} name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Supervisor' name='supervisor' control={control} placeholder='Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Encuestador' value={datos.encuestador} name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Encuestador' name='encuestador' control={control} placeholder='Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
         <div>
-          <Input label='Respondente de la vivienda' value={datos.responde} name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
+          <Input label='Respondente de la vivienda' name='responde' control={control} placeholder='Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
         </div>
       </div>
 
@@ -90,73 +111,122 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mx-40 my-5">
         <div>
-          <Input label='1' value={datos.nro_integrante} name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Numero'  name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='2' value={datos.nombre} name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Nombre' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='3' value={datos.rel_paren} name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Rel. Parentesco' name='rel_paren' control={control} placeholder='Rel. Parentesco' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='4' value={datos.genero} name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Genero' name='genero' control={control} placeholder='Género' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='5' value={datos.edad} name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Edad' name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='6' value={datos.discapacidad} name='discapacidad' control={control} placeholder='Discapacidad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Tiene discapacidad' name='discapacidad' control={control} placeholder='Discapacidad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='7' value={datos.dificultad} name='dificultad' control={control} placeholder='Dificultad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Tiene dificultades' name='dificultad' control={control} placeholder='Dificultad' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='8' value={datos.certificado} name='certificado' control={control} placeholder='Certificado Disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Certificado discapacidad' name='certificado' control={control} placeholder='Certificado Disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='9' value={datos.pension} name='pension' control={control} placeholder='Pensión por disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Cobra pension' name='pension' control={control} placeholder='Pensión por disc.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='10' value={datos.nivel_estudio} name='nivel_estudio' control={control} placeholder='Nivel de estudio' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Nivel de estudios' name='nivel_estudio' control={control} placeholder='Nivel de estudio' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='11' value={datos.estudio_completo} name='estudio_completo' control={control} placeholder='¿Completo nivel?' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Completo nivel de estudios' name='estudio_completo' control={control} placeholder='¿Completo nivel?' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='12' value={datos.motivo} name='motivo' control={control} placeholder='Motivo si no finalizó' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Motivo si no finalizo' name='motivo' control={control} placeholder='Motivo si no finalizó' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='13' value={datos.tipo_establec} name='tipo_establec.' control={control} placeholder='Tipo de establec. educ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Tipo de establec. educativo' name='tipo_establec.' control={control} placeholder='Tipo de establec. educ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='14' value={datos.lugar_establec} name='lugar_establec' control={control} placeholder='Lugar del establecimiento' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Lugar del establecimiento educativo' name='lugar_establec' control={control} placeholder='Lugar del establecimiento' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='15' value={datos.actividad} name='actividad' control={control} placeholder='Condic. de activ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Condiciones de actividad' name='actividad' control={control} placeholder='Condic. de activ.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='16' value={datos.categoria} name='categoria' control={control} placeholder='Categoría de trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Categoria en el trabajo' name='categoria' control={control} placeholder='Categoría de trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='17' value={datos.motivo_categ} name='motivo_categ' control={control} placeholder='Motivo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Motivos de su categoria' name='motivo_categ' control={control} placeholder='Motivo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='18' value={datos.lugar_trabajo} name='lugar_trabajo' control={control} placeholder='Lugar de Trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Lugar de trabajo' name='lugar_trabajo' control={control} placeholder='Lugar de Trabajo' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='19' value={datos.aportes_jub} name='aportes_jub' control={control} placeholder='Aportes jubil.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Realiza aportes jub.' name='aportes_jub' control={control} placeholder='Aportes jubil.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='20' value={datos.ingreso_ind} name='ingreso_ind' control={control} placeholder='Ingreso individual' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Ingreso individual' name='ingreso_ind' control={control} placeholder='Ingreso individual' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
-          <Input label='21' value={datos.cobra_jub} name='cobra_jub' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Cobra jubilacion o pension' name='cobra_jub' control={control} placeholder='Cobra jub. o pens.' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
       </div>
-      <div className="flex justify-center mb-5">
-        <Button type='submit'><EyeOpenIcon></EyeOpenIcon>Vista previa</Button>
-      </div>
+      <div className="flex justify-center mb-5 mt-4 space-x-4">
+      <Button type='submit'><EyeOpenIcon></EyeOpenIcon>Vista previa</Button>
+        <AlertDialog.Root>
+          <AlertDialog.Trigger>
+            <Button radius='full' size={"3"} color="green"><DoubleArrowUpIcon color='black' />Cargar datos</Button>
+          </AlertDialog.Trigger>
+          <AlertDialog.Content>
+            <AlertDialog.Title color='red'>¡Atencion!</AlertDialog.Title>
+            <AlertDialog.Description size="4">
+              Esta por cargar los datos ingresados. Por favor verifique que los datos sean correctos antes de continuar.
+              No podrá modificar los datos una vez cargados.
+            </AlertDialog.Description>
 
+            <Flex gap="3" mt="4" justify="end">
+              <AlertDialog.Cancel>
+                <Button variant="soft" color="blue">
+                  Voy a verificar los datos
+                </Button>
+              </AlertDialog.Cancel>
+              <AlertDialog.Action>
+                <Button onClick={submit} type='submit' variant="solid" color="red">
+                  Cargar definitivamente
+                </Button>
+              </AlertDialog.Action>
+            </Flex>
+          </AlertDialog.Content>
+        </AlertDialog.Root>
+
+        <AlertDialog.Root>
+          <AlertDialog.Trigger>
+            <Button type='submit' size={"3"} color="blue"><ArrowRightIcon color='black' />Siguiente seccion</Button>
+          </AlertDialog.Trigger>
+          <AlertDialog.Content>
+            <AlertDialog.Title color='red'>¡Atencion!</AlertDialog.Title>
+            <AlertDialog.Description size="4">
+              Esta por pasar a la siguiente seccion para cargar el resto de bloque ¿Desea continuar?
+            </AlertDialog.Description>
+
+            <Flex gap="3" mt="4" justify="end">
+              <AlertDialog.Cancel>
+                <Button variant="soft" color="blue">
+                  Aun no he terminado
+                </Button>
+              </AlertDialog.Cancel>
+              <AlertDialog.Action>
+                <Button type='submit' variant="solid" color="red">
+                  Ir a la siguiente seccion
+                </Button>
+              </AlertDialog.Action>
+            </Flex>
+          </AlertDialog.Content>
+        </AlertDialog.Root>
+      </div>
     </form>
   )
 }

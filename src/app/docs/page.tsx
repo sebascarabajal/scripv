@@ -4,6 +4,8 @@ import { Callout } from '@radix-ui/themes'
 import React from 'react'
 
 export default function Information() {
+
+
     return (
         <div className='w-2/4 m-auto'>
             <Callout.Root>
@@ -11,7 +13,7 @@ export default function Information() {
                     <InfoCircledIcon />
                 </Callout.Icon>
                 <Callout.Text>
-                    Para poder cargar los datos de la encuesta debes dirigirte a la opcion "Carga" en la esquina superior derecha del menu principal. Alli te encontraras con dos secciones, una seccion llamada "Carga Bloque de Estructura Familiar" y "Carga resto de bloques". Primero debes cargar la seccion de "Carga Bloque de Estructura Familiar" y luego la seccion de "Carga resto de bloques". Una vez que hayas cargado ambos bloques, podras cargar una nueva encuesta.
+                    Para poder cargar los datos de la encuesta debes dirigirte a la opcion "Carga" en la esquina superior derecha del menu principal. Alli te encontraras con dos secciones, una seccion llamada "Carga Bloque de Estructura Familiar" y "Carga resto de bloques". Primero debes cargar la seccion de "Carga Bloque de Estructura Familiar" y luego la seccion de "Carga resto de bloques". Una vez que hayas cargado ambos bloques, podras cargar una nueva encuesta. 
                 </Callout.Text>
             </Callout.Root>
             <div style={{ margin: '1rem' }}></div>
@@ -39,7 +41,7 @@ export default function Information() {
                 </Callout.Icon>
                 <Callout.Text>
                     Si deseas hacer una consulta por favor comunicate con el administrador del sistema. 
-                    Telefono de computos: 154
+                    Telefono de computos: 154{}
                 </Callout.Text>
             </Callout.Root>
         </div>
