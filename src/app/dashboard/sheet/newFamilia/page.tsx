@@ -49,6 +49,10 @@ function NewSheet() {
 
   const router = useRouter();
 
+  const SiguienteSeccion = () => {
+    router.push('/dashboard/sheet/new')
+  }
+
   const submit = () => {
     onSubmit()
   }
@@ -84,7 +88,7 @@ function NewSheet() {
           <InputRadix name='sector' label='Sector: ' control={control} />
         </div>
         <div>
-          <Input label='Manzana'  name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
@@ -111,7 +115,7 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mx-40 my-5">
         <div>
-          <Input label='Numero'  name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+          <Input label='Numero' name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
         </div>
         <div>
           <Input label='Nombre' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
@@ -175,7 +179,6 @@ function NewSheet() {
         </div>
       </div>
       <div className="flex justify-center mb-5 mt-4 space-x-4">
-      <Button type='submit'><EyeOpenIcon></EyeOpenIcon>Vista previa</Button>
         <AlertDialog.Root>
           <AlertDialog.Trigger>
             <Button radius='full' size={"3"} color="green"><DoubleArrowUpIcon color='black' />Cargar datos</Button>
@@ -204,7 +207,7 @@ function NewSheet() {
 
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button type='submit' size={"3"} color="blue"><ArrowRightIcon color='black' />Siguiente seccion</Button>
+            <Button size={"3"} color="blue"><ArrowRightIcon color='black'/>Siguiente seccion</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
             <AlertDialog.Title color='red'>¡Atencion!</AlertDialog.Title>
@@ -219,7 +222,7 @@ function NewSheet() {
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button type='submit' variant="solid" color="red">
+                <Button onClick={SiguienteSeccion} type='submit' variant="solid" color="red">
                   Ir a la siguiente seccion
                 </Button>
               </AlertDialog.Action>
