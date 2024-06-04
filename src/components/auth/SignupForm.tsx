@@ -51,7 +51,7 @@ function SignupForm() {
                     <Controller
                         control={control}
                         name="id_censista"
-                        rules={{ required: { message: "¡Se requiere un ID!", value: true } }}
+                        rules={{ required: { message: "¡Se requiere un ID!", value: true }}}
                         render={({ field }) => {
                             return (
                                 <TextFieldInput type='number' placeholder='1234' autoFocus {...field}></TextFieldInput>
