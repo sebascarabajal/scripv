@@ -210,10 +210,10 @@ function NewSheet() {
             <Button radius='full' size={"3"} color="green"><DoubleArrowUpIcon color='black' />Cargar datos</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
-            <AlertDialog.Title color='red'>¡Atencion!</AlertDialog.Title>
+            <AlertDialog.Title color='red'>¡Atenci&oacute;n!</AlertDialog.Title>
             <AlertDialog.Description size="4">
-              Esta por cargar los datos ingresados. Por favor verifique que los datos sean correctos antes de continuar.
-              No podrá modificar los datos una vez cargados.
+              Esta por cargar los datos ingresados. Por favor verif&iacute;que que los datos sean correctos antes de continuar.
+              No podr&aacute; modificar los datos una vez cargados.
             </AlertDialog.Description>
 
             <Flex gap="3" mt="4" justify="end">
@@ -233,23 +233,23 @@ function NewSheet() {
 
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button size={"3"} color="blue"><ArrowRightIcon color='black'/>Siguiente seccion</Button>
+            <Button size={"3"} color="blue"><ArrowRightIcon color='black'/>Siguiente secci&oacute;n</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
-            <AlertDialog.Title color='red'>¡Atencion!</AlertDialog.Title>
+            <AlertDialog.Title color='red'>¡Atenci&oacute;n!</AlertDialog.Title>
             <AlertDialog.Description size="4">
-              Esta por pasar a la siguiente seccion para cargar el resto de bloque ¿Desea continuar?
+              Est&aacute; por pasar a la siguiente secci&oacute;n para cargar el resto de bloque ¿Des&eacute;a continuar?
             </AlertDialog.Description>
 
             <Flex gap="3" mt="4" justify="end">
               <AlertDialog.Cancel>
                 <Button variant="soft" color="blue">
-                  Aun no he terminado
+                  A&uacute;n no he terminado
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
                 <Button onClick={SiguienteSeccion} type='submit' variant="solid" color="red">
-                  Ir a la siguiente seccion
+                  Ir a la siguiente secci&oacute;n
                 </Button>
               </AlertDialog.Action>
             </Flex>

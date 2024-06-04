@@ -19,14 +19,12 @@ export default function MainDash() {
             <div className='flex justify-center items-center mt-10'>
                 <AlertDialog.Root>
                     <AlertDialog.Trigger>
-                        <Button size={"4"} color="blue">Cargar una nueva encuesta.</Button>
+                        <Button size={"4"} color="blue">Cargar una nueva encuesta</Button>
                     </AlertDialog.Trigger>
                     <AlertDialog.Content>
-                        <AlertDialog.Title color='red'>¡Lee con atencion!</AlertDialog.Title>
+                        <AlertDialog.Title color='red'>¡Lee con atenci&oacute;n!</AlertDialog.Title>
                         <AlertDialog.Description size="5">
-                            Estas por cargar una nueva encuesta. Primero deberas cargar cada integrante del grupo familiar individutalmente 
-                            de la seccion "Estructura Familiar". Luego presiona el boton "Siguiente seccion" para continuar con
-                            la carga de los demas bloques. Tiene mas informacion al respecto en la seccion de "Informacion" en el menu principal.
+                            Est&aacute;s por cargar una nueva encuesta. Primero deber&aacute;s cargar cada integrante del grupo familiar individutalmente de la secci&oacute;n &quot;Estructura Familiar&quot;. Luego presiona el bot&oacute;n &quot;Siguiente secci&oacute;n&quot; para continuar con la carga de los demas bloques. Tiene mas informaci&oacute;n al respecto en la secci&oacute;n de &quot;Informaci&oacute;n&quot; en el men&uacute; principal.
                         </AlertDialog.Description>
 
                         <Flex gap="3" mt="4" justify="end">
