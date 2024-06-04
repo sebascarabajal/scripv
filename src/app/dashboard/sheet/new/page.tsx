@@ -718,7 +718,7 @@ function New() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='37.Actividades que realiza en EP' name='p37' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='37.Actividades que realiza en EP' name='p37' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p37 && <span className="text-red-500">{errors.p37.message}</span>}
           </div>
           <div>
@@ -754,11 +754,11 @@ function New() {
             {errors.p40 && <span className="text-red-500">{errors.p40.message}</span>}
           </div >
           <div>
-            <Input label='41.Motivos de inseguridad' name='p41' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='41.Motivos de inseguridad' name='p41' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p41 && <span className="text-red-500">{errors.p41.message}</span>}
           </div >
           <div>
-            <Input label='42.Horario seguro para circular' name='p42' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='42.Horario seguro para circular' name='p42' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p42 && <span className="text-red-500">{errors.p42.message}</span>}
           </div >
           <div>
@@ -770,7 +770,7 @@ function New() {
             {errors.p44 && <span className="text-red-500">{errors.p44.message}</span>}
           </div >
           <div>
-            <Input label='45.Que hace los dias de calor extremo' name='p45' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='45.Que hace los dias de calor extremo' name='p45' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p45 && <span className="text-red-500">{errors.p45.message}</span>}
           </div >
           <div>
@@ -778,7 +778,7 @@ function New() {
             {errors.p46 && <span className="text-red-500">{errors.p46.message}</span>}
           </div >
           <div>
-            <Input label='47.Incorporar a los EV para el calor' name='p47' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='47.Incorporar a los EV para el calor' name='p47' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p47 && <span className="text-red-500">{errors.p47.message}</span>}
           </div >
           <div>
@@ -830,7 +830,7 @@ function New() {
             {errors.p53 && <span className="text-red-500">{errors.p53.message}</span>}
           </div >
           <div>
-            <Input label='54.Causa de faltas de limpieza' name='p54' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='54.Causa de faltas de limpieza' name='p54' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p54 && <span className="text-red-500">{errors.p54.message}</span>}
           </div >
           <div>
@@ -852,7 +852,7 @@ function New() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='57.Donde se dirige en emergencia de salud' name='p57' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='57.Donde se dirige en emergencia de salud' name='p57' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p57 && <span className="text-red-500">{errors.p57.message}</span>}
           </div>
           <div>
@@ -938,7 +938,7 @@ function New() {
             {errors.p70 && <span className="text-red-500">{errors.p70.message}</span>}
           </div >
           <div>
-            <Input label='70.1.Desventajas del servicio de transporte' name='p701' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='70.1.Desventajas del servicio de transporte' name='p701' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p701 && <span className="text-red-500">{errors.p701.message}</span>}
           </div >
           <div>
@@ -954,7 +954,7 @@ function New() {
             {errors.p72 && <span className="text-red-500">{errors.p72.message}</span>}
           </div >
           <div>
-            <Input label='73.Fin del uso del vehi. particular' name='p73' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='73.Fin del uso del vehi. particular' name='p73' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p73 && <span className="text-red-500">{errors.p73.message}</span>}
           </div >
           <div>
