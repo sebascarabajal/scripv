@@ -3,7 +3,7 @@ import NextAuth, { AuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -36,19 +36,19 @@ export const authOptions: AuthOptions = {
       },
     })
   ],
-  callbacks:{
-    async jwt({token, user}){
-      if(user){
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
         token.id = user.id
         token.name = user.name
       }
       return token;
     },
-    async session({session, user, token}){
-      if(token){
+    async session({ session, user, token }) {
+      if (token) {
         session.user.id = token.sub as string
       }
-      return session 
+      return session
     }
   },
   pages: {
