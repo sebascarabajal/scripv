@@ -19,7 +19,7 @@ export default function MainDash() {
             <div className='flex justify-center items-center mt-10'>
                 <AlertDialog.Root>
                     <AlertDialog.Trigger>
-                        <Button size={"4"} color="blue">Cargar una nueva encuesta</Button>
+                        <Button size={"4"} className='bg-blue-400'>Cargar una nueva encuesta</Button>
                     </AlertDialog.Trigger>
                     <AlertDialog.Content>
                         <AlertDialog.Title color='red'>¡Lee con atenci&oacute;n!</AlertDialog.Title>
