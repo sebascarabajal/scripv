@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "preguntas_gral" (
-    "id_pregunta_gral" INTEGER NOT NULL,
+    "id_pregunta_gral" SERIAL NOT NULL,
     "pregunta_gral_txt" TEXT NOT NULL,
 
     CONSTRAINT "preguntas_gral_pkey" PRIMARY KEY ("id_pregunta_gral")
