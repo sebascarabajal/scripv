@@ -970,10 +970,10 @@ function New() {
         <div className="flex justify-center mb-5 mt-4 space-x-4">
           <AlertDialog.Root>
             <AlertDialog.Trigger>
-              <Button radius='full' size={"3"} color="green"><DoubleArrowUpIcon color='black' />Cargar datos</Button>
+              <Button radius='full' size={"3"} className='bg-green-400'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
             </AlertDialog.Trigger>
             <AlertDialog.Content>
-              <AlertDialog.Title color='red'>¡Atencion!</AlertDialog.Title>
+              <AlertDialog.Title className='bg-green-400'>¡Atencion!</AlertDialog.Title>
               <AlertDialog.Description size="4">
                 Esta por cargar los datos ingresados. Por favor verifique que los datos sean correctos antes de continuar.
                 No podrá modificar los datos una vez cargados.
@@ -981,12 +981,12 @@ function New() {
 
               <Flex gap="3" mt="4" justify="end">
                 <AlertDialog.Cancel>
-                  <Button variant="soft" color="blue">
+                  <Button variant="soft" className='bg-blue-500'>
                     Voy a verificar los datos
                   </Button>
                 </AlertDialog.Cancel>
                 <AlertDialog.Action>
-                  <Button onClick={submit} type='submit' variant="solid" color="red">
+                  <Button onClick={submit} type='submit' variant="solid" className='bg-red-400'>
                     Cargar definitivamente
                   </Button>
                 </AlertDialog.Action>

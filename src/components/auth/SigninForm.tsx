@@ -76,7 +76,7 @@ function SigninForm() {
                     </TextFieldRoot>
                     {errors.Password && <Text className='text-red-400'>{errors.Password.message}</Text>}
 
-                    <Button type='submit' mt="4">
+                    <Button type='submit' mt="4" className='bg-blue-500'>
                         <EnterIcon height="16" width="16"></EnterIcon>
                         {isPending ? "Cargando..." : "¡Entrar!"}
                     </Button>

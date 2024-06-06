@@ -11,7 +11,7 @@ export default function Information() {
                     <InfoCircledIcon />
                 </Callout.Icon>
                 <Callout.Text>
-                    Para poder cargar los datos de la encuesta debes dirigirte a la opcion &quot;Carga&quot; en la esquina superior derecha del menu principal. Alli te encontraras con dos secciones, una seccion llamada &quot;Carga Bloque de Estructura Familiar&quot; y &quot;Carga resto de bloques&quot;. Primero debes cargar la seccion de &quot;Carga Bloque de Estructura Familiar&quot; y luego la seccion de &quot;Carga resto de bloques&quot;. Una vez que hayas cargado ambos bloques, podras cargar una nueva encuesta. 
+                    Para poder cargar los datos de la encuesta debes dirigirte a la opci&oacute;n &quot;Carga&quot; en la esquina superior derecha del men&uacute; principal. All&iacute; te encontraras con un bot&oacute;n &quot;Cargar una nueva encuesta&quot;. Te preguntara si deseas cargar y los pasos a seguir. Debes cargar todos los integrantes del grupo familiar en la primera secci&oacute;n para luego seleccionar &quot;siguiente secci&oacute;n&quot; y cargar el resto de preguntas.
                 </Callout.Text>
             </Callout.Root>
             <div style={{ margin: '1rem' }}></div>
@@ -29,7 +29,7 @@ export default function Information() {
                     <InfoCircledIcon />
                 </Callout.Icon>
                 <Callout.Text>
-                    Cada dato de Sector | Manzana | Casa deber ser UNICO para cada encuesta. Si el dato ya existe en la base de datos, la encuesta no sera cargada y producira insconsistencias en la base de datos. POR FAVOR revisa que esos datos sean unicos antes de cargar la encuesta.
+                    Cada dato de Sector | Manzana | Casa deber ser &Uacute;NICO para cada encuesta. Si el dato ya existe en la base de datos, la encuesta no sera cargada y producira insconsistencias en la base de datos. POR FAVOR revisa que esos datos sean &Uacute;nicos antes de cargar la encuesta.
                 </Callout.Text>
             </Callout.Root>
             <div style={{ margin: '1rem' }}></div>
@@ -38,7 +38,7 @@ export default function Information() {
                     <InfoCircledIcon />
                 </Callout.Icon>
                 <Callout.Text>
-                    Si deseas hacer una consulta por favor comunicate con el administrador del sistema. 
+                    Si des&eacute;as hacer una cons&uacute;lta por favor comun&iacute;cate con el administrador del sistema. 
                     Telefono de computos: 154
                 </Callout.Text>
             </Callout.Root>
