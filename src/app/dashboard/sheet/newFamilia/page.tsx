@@ -124,7 +124,7 @@ function NewSheet() {
           {errors.nro_integrante && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
-          <Input label='Nombre' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+          <Input label='Nombre' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='text'></Input>
           {errors.nombre && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
@@ -207,7 +207,7 @@ function NewSheet() {
       <div className="flex justify-center mb-5 mt-4 space-x-4">
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button radius='full' size={"3"} className='bg-green-400'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
+            <Button radius='full' size={"3"} className='bg-green-400 text-black'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
             <AlertDialog.Title className='text-red-500'>¡Atenci&oacute;n!</AlertDialog.Title>
@@ -218,12 +218,12 @@ function NewSheet() {
 
             <Flex gap="3" mt="4" justify="end">
               <AlertDialog.Cancel>
-                <Button variant="soft" className='bg-blue-500'>
+                <Button className='bg-blue-500 text-black'>
                   Voy a verificar los datos
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button onClick={submit} type='submit' variant="solid" className='bg-red-400'>
+                <Button onClick={submit} type='submit' variant="solid" className='bg-red-500'>
                   Cargar definitivamente
                 </Button>
               </AlertDialog.Action>
@@ -243,7 +243,7 @@ function NewSheet() {
 
             <Flex gap="3" mt="4" justify="end">
               <AlertDialog.Cancel>
-                <Button variant="soft" className='bg-blue-500'>
+                <Button className='bg-blue-500 text-black'>
                   A&uacute;n no he terminado
                 </Button>
               </AlertDialog.Cancel>
