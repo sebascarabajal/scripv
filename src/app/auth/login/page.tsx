@@ -27,12 +27,6 @@ function LoginPage() {
                             <div>
                                 <Heading>Inicio de Sesión | Censo</Heading>
                                 <SigninForm />
-                                <Flex justify="between" my="4">
-                                    <Text>¿No posees una cuenta?</Text>
-                                    <Link asChild>
-                                        <NavLink href="/auth/register" passHref>Crea una.</NavLink>
-                                    </Link>
-                                </Flex>
                             </div>
                         )}
                         {session && (
