@@ -157,8 +157,8 @@ function SignupForm() {
 
                 {errors.Password && <Text className='text-red-400'>{errors.Password.message}</Text>}
 
-                <Button type='submit'>
-                    <LightningBoltIcon height="16" width="16"></LightningBoltIcon>
+                <Button type='submit' className='bg-blue-500'>
+                    <LightningBoltIcon height="16" width="16" ></LightningBoltIcon>
                     {isPending ? "Creando tu cuenta..." : "¡Crear!"}
                 </Button>
             </Flex>

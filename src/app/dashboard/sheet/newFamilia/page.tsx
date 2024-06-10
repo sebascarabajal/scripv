@@ -69,10 +69,12 @@ function NewSheet() {
         router.refresh();
       }, 3000);
     }
-    toast.error('¡Error al cargar los datos!', {
-      description: 'Por favor intente nuevamente',
-      position: 'top-center',
-    })
+    else {
+      toast.error('¡Error al cargar los datos!', {
+        description: 'Por favor intente nuevamente',
+        position: 'top-center',
+      })
+    }
   })
 
   return (
@@ -102,15 +104,15 @@ function NewSheet() {
           {errors.hogar && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
-          <Input label='Supervisor' name='supervisor' control={control} placeholder='Nombre del Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='text'></Input>
+          <Input label='Supervisor' name='supervisor' control={control} placeholder='Nombre del Supervisor' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
           {errors.supervisor && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
-          <Input label='Encuestador' name='encuestador' control={control} placeholder='Nombre del Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='text'></Input>
+          <Input label='Encuestador' name='encuestador' control={control} placeholder='Nombre del Encuestador' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
           {errors.encuestador && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
-          <Input label='Respondente de la vivienda' name='responde' control={control} placeholder='Nombre del Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='text'></Input>
+          <Input label='Respondente de la vivienda' name='responde' control={control} placeholder='Nombre del Respondente' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
           {errors.responde && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
       </div>
@@ -124,7 +126,7 @@ function NewSheet() {
           {errors.nro_integrante && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
-          <Input label='2.Nombre' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='text'></Input>
+          <Input label='2.Nombre' name='nombre' control={control} placeholder='Nombre' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='text'></Input>
           {errors.nombre && <p className="text-red-500">¡Se requiere este dato!</p>}
         </div>
         <div>
@@ -233,7 +235,7 @@ function NewSheet() {
 
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button size={"3"} className='bg-blue-500'><ArrowRightIcon color='black'/>Siguiente secci&oacute;n</Button>
+            <Button size={"3"} className='bg-blue-500'><ArrowRightIcon color='black' />Siguiente secci&oacute;n</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
             <AlertDialog.Title className='text-red-500'>¡Atenci&oacute;n!</AlertDialog.Title>

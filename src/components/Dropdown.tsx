@@ -16,7 +16,9 @@ function Dropdown() {
             
         });
         setTimeout(() => {
-            signOut()
+            signOut({
+                callbackUrl: "/auth/login"
+            })
         }, 2000);
     }
 

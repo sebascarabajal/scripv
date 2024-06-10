@@ -33,11 +33,11 @@ function NavBar() {
                                             <NavLink className='text-xl' href="/auth/login">Entrar</NavLink>
                                         </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link asChild>
                                             <NavLink className='text-xl' href="/auth/register">Crear usuario</NavLink>
                                         </Link>
-                                    </li>
+                                    </li> */}
                                 </>
                             )
                         }

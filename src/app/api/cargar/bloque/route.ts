@@ -2,10 +2,62 @@ import prisma from "@/supabase/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/utils/authOptions";
-import { Console } from "console";
 
 export async function POST(request: Request) {
     const data = await request.json()
+    console.log(data)
+    console.log(data.p281)
+    console.log(data.p37)
+    console.log(data.p41)
+    console.log(data.p42)
+    console.log(data.p45)
+    console.log(data.p47)
+    console.log(data.p54)
+    console.log(data.p57)
+    console.log(data.p701)
+    console.log(data.p73)
+
+    const p281 = data.p281
+    const arrayp281 = p281.split('')
+    const listop281 = arrayp281.join(',')
+
+    const p37 = data.p37
+    const arrayp37 = p37.split('')
+    const listop37 = arrayp37.join(',')
+
+    const p41 = data.p41;
+    const arrayp41 = p41.split('');
+    const listop41 = arrayp41.join(',');
+
+    const p42 = data.p42;
+    const arrayp42 = p42.split('');
+    const listop42 = arrayp42.join(',');
+
+    const p45 = data.p45;
+    const arrayp45 = p45.split('');
+    const listop45 = arrayp45.join(',');
+
+    const p47 = data.p47;
+    const arrayp47 = p47.split('');
+    const listop47 = arrayp47.join(',');
+
+    const p54 = data.p54;
+    const arrayp54 = p54.split('');
+    const listop54 = arrayp54.join(',');
+
+    const p57 = data.p57;
+    const arrayp57 = p57.split('');
+    const listop57 = arrayp57.join(',');
+
+    const p701 = data.p701;
+    const arrayp701 = p701.split('');
+    const listop701 = arrayp701.join(',');
+
+    const p73 = data.p73;
+    const arrayp73 = p73.split('');
+    const listop73 = arrayp73.join(',');
+
+
     const { sector, manzana, casa, vivienda } = data
     const codCasa = sector + manzana + casa + vivienda
 
@@ -32,7 +84,7 @@ export async function POST(request: Request) {
     const artefactos = artefac_a + "," + artefac_b + "," + artefac_c + "," + artefac_d + "," + artefac_e
     const griferia = grife_a + "," + grife_b + "," + grife_c + "," + grife_d + "," + grife_e
     const canieria = canieria_a + "," + canieria_b + "," + canieria_c + "," + canieria_d + "," + canieria_e
-    const instalacio_elec = instelec_a + "," + instelec_b + "," + instelec_c + "," + instelec_d + "," + instelec_e
+    const instalacion_elec = instelec_a + "," + instelec_b + "," + instelec_c + "," + instelec_d + "," + instelec_e
     const instalacion_gas = instgas_a + "," + instgas_b + "," + instgas_c + "," + instgas_d + "," + instgas_e
     const tanque = tanque_a + "," + tanque_b + "," + tanque_c + "," + tanque_d + "," + tanque_e
 
@@ -74,7 +126,7 @@ export async function POST(request: Request) {
                 (${codCasa}, 18, ${data.p262}),
                 (${codCasa}, 19, ${data.p27}),
                 (${codCasa}, 20, ${data.p28}),
-                (${codCasa}, 21, ${data.p281}),
+                (${codCasa}, 21, ${listop281}),
                 (${codCasa}, 22, ${data.p29}),
                 (${codCasa}, 23, ${data.p291}),
                 (${codCasa}, 24, ${data.p301}),
@@ -106,10 +158,10 @@ export async function POST(request: Request) {
                 (${codCasa}, 50, ${artefactos}),
                 (${codCasa}, 51, ${griferia}),
                 (${codCasa}, 52, ${canieria}),
-                (${codCasa}, 53, ${instalacio_elec}),
+                (${codCasa}, 53, ${instalacion_elec}),
                 (${codCasa}, 54, ${instalacion_gas}),
                 (${codCasa}, 55, ${tanque}),
-                (${codCasa}, 56, ${data.p37}),
+                (${codCasa}, 56, ${listop37}),
                 (${codCasa}, 57, ${data.p38}),
                 (${codCasa}, 58, ${data.p391}),
                 (${codCasa}, 59, ${data.p392}),
@@ -118,13 +170,13 @@ export async function POST(request: Request) {
                 (${codCasa}, 62, ${data.p395}),
                 (${codCasa}, 63, ${data.p396}),
                 (${codCasa}, 64, ${data.p40}),
-                (${codCasa}, 65, ${data.p41}),
-                (${codCasa}, 66, ${data.p42}),
+                (${codCasa}, 65, ${listop41}),
+                (${codCasa}, 66, ${listop42}),
                 (${codCasa}, 67, ${data.p43}),
                 (${codCasa}, 68, ${data.p44}),
-                (${codCasa}, 69, ${data.p45}),
+                (${codCasa}, 69, ${listop45}),
                 (${codCasa}, 70, ${data.p46}),
-                (${codCasa}, 71, ${data.p47}),
+                (${codCasa}, 71, ${listop47}),
                 (${codCasa}, 72, ${data.p481}),
                 (${codCasa}, 73, ${data.p482}),
                 (${codCasa}, 74, ${data.p491}),
@@ -137,11 +189,11 @@ export async function POST(request: Request) {
                 (${codCasa}, 81, ${data.p521}),
                 (${codCasa}, 82, ${data.p522}),
                 (${codCasa}, 83, ${data.p53}),
-                (${codCasa}, 84, ${data.p54}),
+                (${codCasa}, 84, ${listop54}),
                 (${codCasa}, 85, ${data.p55}),
                 (${codCasa}, 86, ${data.p561}),
                 (${codCasa}, 87, ${data.p562}),
-                (${codCasa}, 88, ${data.p57}),
+                (${codCasa}, 88, ${listop57}),
                 (${codCasa}, 89, ${data.p58}),
                 (${codCasa}, 90, ${data.p59}),
                 (${codCasa}, 91, ${data.p60}),
@@ -161,13 +213,14 @@ export async function POST(request: Request) {
                 (${codCasa}, 105, ${data.p68}),
                 (${codCasa}, 106, ${data.p69}),
                 (${codCasa}, 107, ${data.p70}),
-                (${codCasa}, 108, ${data.p701}),
+                (${codCasa}, 108, ${listop701}),
                 (${codCasa}, 109, ${data.p71}),
                 (${codCasa}, 110, ${data.p711}),
                 (${codCasa}, 111, ${data.p72}),
-                (${codCasa}, 112, ${data.p73}),
+                (${codCasa}, 112, ${listop73}),
                 (${codCasa}, 113, ${data.p74}),
-                (${codCasa}, 114, ${data.p75})
+                (${codCasa}, 114, ${data.p75}),
+                (${codCasa}, 115, ${data.observaciones})
             `
         })
     }
