@@ -128,7 +128,7 @@ function NewSheet() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mx-40 my-5">
         <div>
-          <Input label='1.Numero' name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
+          <Input label='1.Numero' name='nro_integrante' control={control} placeholder='Número' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
           {errors.nro_integrante && <p className="text-red-500">{errors.nro_integrante.message}</p>}
         </div>
         <div>
@@ -144,7 +144,7 @@ function NewSheet() {
           {errors.genero && <p className="text-red-500">{errors.genero.message}</p>}
         </div>
         <div>
-          <Input label='5.Edad' name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
+          <Input label='5.Edad' name='edad' control={control} placeholder='Edad' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
           {errors.edad && <p className="text-red-500">{errors.edad.message}</p>}
         </div>
         <div>
@@ -164,7 +164,7 @@ function NewSheet() {
           {errors.pension && <p className="text-red-500">{errors.pension.message}</p>}
         </div>
         <div>
-          <Input label='10.Nivel de estudios' name='nivel_estudio' control={control} placeholder='1-10' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
+          <Input label='10.Nivel de estudios' name='nivel_estudio' control={control} placeholder='1-10' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
           {errors.nivel_estudio && <p className="text-red-500">{errors.nivel_estudio.message}</p>}
         </div>
         <div>
@@ -198,7 +198,7 @@ function NewSheet() {
           {errors.categoria && <p className="text-red-500">{errors.categoria.message}</p>}
         </div>
         <div>
-          <Input label='15.Motivos de su categoria' name='motivo_categ' control={control} placeholder='1-7' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-7]*$/ } }} type='number'></Input>
+          <Input label='15.Motivos de su categoria' name='motivo_categ' control={control} placeholder='1-7' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-8]*$/ } }} type='number'></Input>
           {errors.motivo_categ && <p className="text-red-500">{errors.motivo_categ.message}</p>}
         </div>
         <div>
