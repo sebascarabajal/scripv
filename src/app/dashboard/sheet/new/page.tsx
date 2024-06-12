@@ -222,23 +222,23 @@ function New() {
             {errors.sector && <span className="text-red-500">{errors.sector.message}</span>}
           </div>
           <div>
-            <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
             {errors.manzana && <span className="text-red-500">{errors.manzana.message}</span>}
           </div>
           <div>
-            <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
             {errors.lote && <span className="text-red-500">{errors.lote.message}</span>}
           </div>
           <div>
-            <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
             {errors.casa && <span className="text-red-500">{errors.casa.message}</span>}
           </div>
           <div>
-            <Input label='Vivienda' name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='Vivienda' name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
             {errors.vivienda && <span className="text-red-500">{errors.vivienda.message}</span>}
           </div>
           <div>
-            <Input label='Hogar' name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='Hogar' name='hogar' control={control} placeholder='Nro de Hogar' rules={{ required: { message: "¡Se requiere este dato!", value: true }}} type='number'></Input>
             {errors.hogar && <span className="text-red-500">{errors.hogar.message}</span>}
           </div>
           <div>
@@ -261,15 +261,15 @@ function New() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='20.Habitabilidad' name='p20' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='20.Habitabilidad' name='p20' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
             {errors.p20 && <span className="text-red-500">{errors.p20.message}</span>}
           </div>
           <div>
-            <Input label='21.Este hogar es...' name='p21' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='21.Este hogar es...' name='p21' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
             {errors.p21 && <span className="text-red-500">{errors.p21.message}</span>}
           </div>
           <div>
-            <Input label='22.Documentacion' name='p22' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='22.Documentacion' name='p22' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
             {errors.p22 && <span className="text-red-500">{errors.p22.message}</span>}
           </div >
         </div >
@@ -280,35 +280,35 @@ function New() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='23.Provicion agua' name='p23' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='23.Provicion agua' name='p23' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p23 && <span className="text-red-500">{errors.p23.message}</span>}
           </div>
           <div>
-            <Input label='24.Agrego circuito...' name='p24' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='24.Agrego circuito...' name='p24' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
             {errors.p24 && <span className="text-red-500">{errors.p24.message}</span>}
           </div >
           <div>
-            <Input label='25.Servicio electrico' name='p25' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='25.Servicio electrico' name='p25' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p25 && <span className="text-red-500">{errors.p25.message}</span>}
           </div >
           <div>
-            <Input label='25.1Tipo de alteraciones' name='p251' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='25.1Tipo de alteraciones' name='p251' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p251 && <span className="text-red-500">{errors.p251.message}</span>}
           </div >
           <div>
-            <Input label='26.Equipo de calefaccion' name='p26' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='26.Equipo de calefaccion' name='p26' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p26 && <span className="text-red-500">{errors.p26.message}</span>}
           </div >
           <div>
-            <Input label='26.1.Cambio de equipo de calefaccion' name='p261' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='26.1.Cambio de equipo de calefaccion' name='p261' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p261 && <span className="text-red-500">{errors.p261.message}</span>}
           </div >
           <div>
-            <Input label='26.2.Tipo de calefaccion de agua' name='p262' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='26.2.Tipo de calefaccion de agua' name='p262' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-7]*$/ } }} type='number'></Input>
             {errors.p262 && <span className="text-red-500">{errors.p262.message}</span>}
           </div >
           <div>
-            <Input label='27. Posee internet' name='p27' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='27. Posee internet' name='p27' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p27 && <span className="text-red-500">{errors.p27.message}</span>}
           </div >
         </div >
@@ -321,7 +321,7 @@ function New() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='28.Realizo ampliaciones' name='p28' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='28.Realizo ampliaciones' name='p28' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p28 && <span className="text-red-500">{errors.p28.message}</span>}
           </div>
           <div>
@@ -329,39 +329,39 @@ function New() {
             {errors.p281 && <span className="text-red-500">{errors.p281.message}</span>}
           </div >
           <div>
-            <Input label='29.Tuvo obstaculos' name='p29' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='29.Tuvo obstaculos' name='p29' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p29 && <span className="text-red-500">{errors.p29.message}</span>}
           </div>
           <div>
-            <Input label='29.1.Tipo obstaculos' name='p291' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='29.1.Tipo obstaculos' name='p291' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-5]*$/ } }} type='number'></Input>
             {errors.p291 && <span className="text-red-500">{errors.p291.message}</span>}
           </div>
           <div>
-            <Input label='30.1.Evalue iluminacion' name='p301' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='30.1.Evalue iluminacion' name='p301' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p301 && <span className="text-red-500">{errors.p301.message}</span>}
           </div >
           <div>
-            <Input label='30.2.Evalue ventilacion' name='p302' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='30.2.Evalue ventilacion' name='p302' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p302 && <span className="text-red-500">{errors.p302.message}</span>}
           </div >
           <div>
-            <Input label='31.1.Temp. interior temporada calida' name='p311' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='31.1.Temp. interior temporada calida' name='p311' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p311 && <span className="text-red-500">{errors.p311.message}</span>}
           </div >
           <div>
-            <Input label='31.2.Habitable sin refrigeracion' name='p312' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='31.2.Habitable sin refrigeracion' name='p312' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p312 && <span className="text-red-500">{errors.p312.message}</span>}
           </div >
           <div>
-            <Input label='31.3.Temp. interior temporada fria' name='p313' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='31.3.Temp. interior temporada fria' name='p313' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p313 && <span className="text-red-500">{errors.p313.message}</span>}
           </div >
           <div>
-            <Input label='31.4. Habitable sin calefaccion' name='p314' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='31.4. Habitable sin calefaccion' name='p314' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p314 && <span className="text-red-500">{errors.p314.message}</span>}
           </div >
           <div>
-            <Input label='32.Posee artefatos climatizadores' name='p32' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='32.Posee artefatos climatizadores' name='p32' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p32 && <span className="text-red-500">{errors.p32.message}</span>}
           </div >
           <div>
@@ -409,11 +409,11 @@ function New() {
             {errors.p342 && <span className="text-red-500">{errors.p342.message}</span>}
           </div >
           <div>
-            <Input label='35.Frecuencia mantenimiento del hogar' name='p35' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='35.Frecuencia mantenimiento del hogar' name='p35' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p35 && <span className="text-red-500">{errors.p35.message}</span>}
           </div >
           <div>
-            <Input label='36.Presento patologias constructivas' name='p36' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='36.Presento patologias constructivas' name='p36' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p36 && <span className="text-red-500">{errors.p36.message}</span>}
           </div >
         </div >
@@ -732,11 +732,11 @@ function New() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='37.Actividades que realiza en EP - Multi' name='p37' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='37.Actividades que realiza en EP - Multi' name='p37' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p37 && <span className="text-red-500">{errors.p37.message}</span>}
           </div>
           <div>
-            <Input label='38.Cuando utilizan EP' name='p38' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='38.Cuando utilizan EP' name='p38' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p38 && <span className="text-red-500">{errors.p38.message}</span>}
           </div >
           <div>
@@ -764,35 +764,35 @@ function New() {
             {errors.p396 && <span className="text-red-500">{errors.p396.message}</span>}
           </div >
           <div>
-            <Input label='40.EP son seguros' name='p40' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='40.EP son seguros' name='p40' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p40 && <span className="text-red-500">{errors.p40.message}</span>}
           </div >
           <div>
-            <Input label='41.Motivos de inseguridad - Multi' name='p41' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='41.Motivos de inseguridad - Multi' name='p41' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p41 && <span className="text-red-500">{errors.p41.message}</span>}
           </div >
           <div>
-            <Input label='42.Horario seguro para circular - Multi' name='p42' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='42.Horario seguro para circular - Multi' name='p42' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p42 && <span className="text-red-500">{errors.p42.message}</span>}
           </div >
           <div>
-            <Input label='43.Con quien usa EP' name='p43' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='43.Con quien usa EP' name='p43' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p43 && <span className="text-red-500">{errors.p43.message}</span>}
           </div >
           <div>
-            <Input label='44.Que distancia se traslada para usar EP' name='p44' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='44.Que distancia se traslada para usar EP' name='p44' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p44 && <span className="text-red-500">{errors.p44.message}</span>}
           </div >
           <div>
-            <Input label='45.Que hace los dias de calor extremo - Multi' name='p45' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='45.Que hace los dias de calor extremo - Multi' name='p45' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p45 && <span className="text-red-500">{errors.p45.message}</span>}
           </div >
           <div>
-            <Input label='46.Refugio al calor en EV de Lomas' name='p46' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='46.Refugio al calor en EV de Lomas' name='p46' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p46 && <span className="text-red-500">{errors.p46.message}</span>}
           </div >
           <div>
-            <Input label='47.Incorporar a los EV para el calor - Multi' name='p47' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='47.Incorporar a los EV para el calor - Multi' name='p47' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p47 && <span className="text-red-500">{errors.p47.message}</span>}
           </div >
           <div>
@@ -844,7 +844,7 @@ function New() {
             {errors.p53 && <span className="text-red-500">{errors.p53.message}</span>}
           </div >
           <div>
-            <Input label='54.Causa de faltas de limpieza - Multi' name='p54' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='54.Causa de faltas de limpieza - Multi' name='p54' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p54 && <span className="text-red-500">{errors.p54.message}</span>}
           </div >
           <div>
@@ -869,35 +869,35 @@ function New() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='57.Emergencia de salud - Multi' name='p57' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='57.Emergencia de salud - Multi' name='p57' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }}} type='number'></Input>
             {errors.p57 && <span className="text-red-500">{errors.p57.message}</span>}
           </div>
           <div>
-            <Input label='58.Suficientes espacios de recreacion' name='p58' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='58.Suficientes espacios de recreacion' name='p58' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p58 && <span className="text-red-500">{errors.p58.message}</span>}
           </div >
           <div>
-            <Input label='59.Que espacios faltan' name='p59' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='59.Que espacios faltan' name='p59' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
             {errors.p59 && <span className="text-red-500">{errors.p59.message}</span>}
           </div >
           <div>
-            <Input label='60.Se abastace en comercios locales' name='p60' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='60.Se abastace en comercios locales' name='p60' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p60 && <span className="text-red-500">{errors.p60.message}</span>}
           </div >
           <div>
-            <Input label='61.La oferta comercial es suficiente' name='p61' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='61.La oferta comercial es suficiente' name='p61' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p61 && <span className="text-red-500">{errors.p61.message}</span>}
           </div >
           <div>
-            <Input label='62.Que locales hacen falta' name='p62' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='62.Que locales hacen falta' name='p62' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p62 && <span className="text-red-500">{errors.p62.message}</span>}
           </div >
           <div>
-            <Input label='63.Conoce mercados/ferias municipales' name='p63' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='63.Conoce mercados/ferias municipales' name='p63' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p63 && <span className="text-red-500">{errors.p63.message}</span>}
           </div >
           <div>
-            <Input label='63.1.Utiliza mercados locales' name='p631' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='63.1.Utiliza mercados locales' name='p631' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p631 && <span className="text-red-500">{errors.p631.message}</span>}
           </div >
           <div>
@@ -917,19 +917,19 @@ function New() {
             {errors.p644 && <span className="text-red-500">{errors.p644.message}</span>}
           </div >
           <div>
-            <Input label='64.5.Utiliza estos centros' name='p645' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='64.5.Utiliza estos centros' name='p645' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p645 && <span className="text-red-500">{errors.p645.message}</span>}
           </div >
           <div>
-            <Input label='65.Cree que los espacios son necesarios' name='p65' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='65.Cree que los espacios son necesarios' name='p65' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p65 && <span className="text-red-500">{errors.p65.message}</span>}
           </div >
           <div>
-            <Input label='66.Existen espacios que identifiquen al barrio' name='p66' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='66.Existen espacios que identifiquen al barrio' name='p66' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p66 && <span className="text-red-500">{errors.p66.message}</span>}
           </div >
           <div>
-            <Input label='66.1.Cuales' name='p661' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='66.1.Cuales' name='p661' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
             {errors.p661 && <span className="text-red-500">{errors.p661.message}</span>}
           </div >
         </div >
@@ -942,52 +942,52 @@ function New() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='67.Estado del acceso al barrio' name='p67' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='67.Estado del acceso al barrio' name='p67' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p67 && <span className="text-red-500">{errors.p67.message}</span>}
           </div>
           <div>
-            <Input label='68.Medio de transporte que utiliza' name='p68' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='68.Medio de transporte que utiliza' name='p68' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p68 && <span className="text-red-500">{errors.p68.message}</span>}
           </div >
           <div>
-            <Input label='69.Fin del uso del transporte publico' name='p69' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='69.Fin del uso del transporte publico' name='p69' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
             {errors.p69 && <span className="text-red-500">{errors.p69.message}</span>}
           </div >
           <div>
-            <Input label='70.Transporte publico es eficiente' name='p70' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='70.Transporte publico es eficiente' name='p70' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p70 && <span className="text-red-500">{errors.p70.message}</span>}
           </div >
           <div>
-            <Input label='70.1.Desventajas transporte - Multi' name='p701' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='70.1.Desventajas transporte - Multi' name='p701' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }}} type='number'></Input>
             {errors.p701 && <span className="text-red-500">{errors.p701.message}</span>}
           </div >
           <div>
-            <Input label='71.Conoce/usa Ecobus' name='p71' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='71.Conoce/usa Ecobus' name='p71' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p71 && <span className="text-red-500">{errors.p71.message}</span>}
           </div >
           <div>
-            <Input label='71.1.Califique Ecobus' name='p711' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='71.1.Califique Ecobus' name='p711' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-2]*$/ } }} type='number'></Input>
             {errors.p711 && <span className="text-red-500">{errors.p711.message}</span>}
           </div >
           <div>
-            <Input label='72.Frecuencia del uso del vehiculo particular' name='p72' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='72.Frecuencia del uso del vehiculo particular' name='p72' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p72 && <span className="text-red-500">{errors.p72.message}</span>}
           </div >
           <div>
-            <Input label='73.Fin del uso del vehi. particular - Multi' name='p73' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='text'></Input>
+            <Input label='73.Fin del uso del vehi. particular - Multi' name='p73' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p73 && <span className="text-red-500">{errors.p73.message}</span>}
           </div >
           <div>
-            <Input label='74.Como se traslada en el barrio' name='p74' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='74.Como se traslada en el barrio' name='p74' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
             {errors.p74 && <span className="text-red-500">{errors.p74.message}</span>}
           </div >
           <div>
-            <Input label='75.Conoce a sus vecinos' name='p75' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='75.Conoce a sus vecinos' name='p75' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p75 && <span className="text-red-500">{errors.p75.message}</span>}
           </div >
         </div >
         <div className='grid grid-cols-2 md:grid-cols-1 gap-4 mx-40 my-5'>
-          <Input label='Observaciones' name='observaciones' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: false } }} type='text'></Input>
+          <Input label='Observaciones' name='observaciones' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: false } }} type='number'></Input>
           {errors.p75 && <span className="text-red-500">{errors.p75.message}</span>}
         </div>
         <div className="flex justify-center mb-5 mt-4 space-x-4">
