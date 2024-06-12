@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Encuestas" ALTER COLUMN "fecha" SET DATA TYPE TIMESTAMPTZ(3);

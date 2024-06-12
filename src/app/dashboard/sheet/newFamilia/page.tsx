@@ -14,6 +14,7 @@ function NewSheet() {
     values: {
       sector: "",
       manzana: "",
+      lote: "",
       casa: "",
       vivienda: "",
       hogar: "",
@@ -90,6 +91,10 @@ function NewSheet() {
         <div>
           <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
           {errors.manzana && <p className="text-red-500">¡Se requiere este dato!</p>}
+        </div>
+        <div>
+          <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+          {errors.lote && <span className="text-red-500">{errors.lote.message}</span>}
         </div>
         <div>
           <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>

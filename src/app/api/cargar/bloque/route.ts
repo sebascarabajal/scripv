@@ -5,17 +5,6 @@ import { authOptions } from "@/utils/authOptions";
 
 export async function POST(request: Request) {
     const data = await request.json()
-    console.log(data)
-    console.log(data.p281)
-    console.log(data.p37)
-    console.log(data.p41)
-    console.log(data.p42)
-    console.log(data.p45)
-    console.log(data.p47)
-    console.log(data.p54)
-    console.log(data.p57)
-    console.log(data.p701)
-    console.log(data.p73)
 
     const p281 = data.p281
     const arrayp281 = p281.split('')
@@ -220,7 +209,8 @@ export async function POST(request: Request) {
                 (${codCasa}, 112, ${listop73}),
                 (${codCasa}, 113, ${data.p74}),
                 (${codCasa}, 114, ${data.p75}),
-                (${codCasa}, 115, ${data.observaciones})
+                (${codCasa}, 115, ${data.observaciones}),
+                (${codCasa}, 116, ${data.lote})
             `
         })
     }

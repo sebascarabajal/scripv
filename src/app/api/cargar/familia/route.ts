@@ -8,8 +8,6 @@ export async function POST(request: Request) {
     const data = await request.json()
     const { sector, manzana, casa, vivienda } = data
     const codCasa = sector + manzana + casa + vivienda
-    console.log(codCasa)
-    console.log(data.sector)
     const session = await getServerSession(authOptions)
 
     if (!session) {
@@ -62,7 +60,8 @@ export async function POST(request: Request) {
                  (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 26), ${data.lugar_trabajo}),
                  (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 27), ${data.aportes_jub}),
                  (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 28), ${data.ingreso_ind}),
-                 (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 29), ${data.cobra_jub})`
+                 (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 29), ${data.cobra_jub}),
+                 (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 30), ${data.lote})`
         })
     }
     catch (error) {

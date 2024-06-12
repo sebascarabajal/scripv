@@ -6,7 +6,7 @@ import InputRadix from '@/components/InputRadix';
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import { toast } from 'sonner';
+import { toast, Toaster } from 'sonner';
 import { DoubleArrowUpIcon } from '@radix-ui/react-icons';
 
 function New() {
@@ -15,6 +15,7 @@ function New() {
     values: {
       sector: "",
       manzana: "",
+      lote: "",
       casa: "",
       vivienda: "",
       hogar: "",
@@ -210,6 +211,7 @@ function New() {
   return (
     <>
       <form onSubmit={onSubmit}>
+      <Toaster richColors />
         <div className="flex justify-center">
           <Heading>Carga datos ubicacion</Heading>
         </div>
@@ -222,6 +224,10 @@ function New() {
           <div>
             <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
             {errors.manzana && <span className="text-red-500">{errors.manzana.message}</span>}
+          </div>
+          <div>
+            <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+            {errors.lote && <span className="text-red-500">{errors.lote.message}</span>}
           </div>
           <div>
             <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
