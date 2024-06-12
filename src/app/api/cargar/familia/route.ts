@@ -61,7 +61,8 @@ export async function POST(request: Request) {
                  (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 27), ${data.aportes_jub}),
                  (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 28), ${data.ingreso_ind}),
                  (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 29), ${data.cobra_jub}),
-                 (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 30), ${data.lote})`
+                 (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 30), ${data.lote}),
+                 (${codCasa}, (select id_estruct_preg FROM preguntas_estruc WHERE id_estruct_preg = 31), ${data.asiste})`
         })
     }
     catch (error) {
