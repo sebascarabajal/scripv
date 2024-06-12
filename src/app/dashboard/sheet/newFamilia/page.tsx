@@ -221,7 +221,7 @@ function NewSheet() {
       <div className="flex justify-center mb-5 mt-4 space-x-4">
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button radius='full' size={"3"} className='bg-green-400 text-black'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
+            <Button radius='full' size={"3"} className='bg-green-400 text-black cursor-pointer'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
             <AlertDialog.Title className='text-red-500'>¡Atenci&oacute;n!</AlertDialog.Title>
@@ -232,12 +232,12 @@ function NewSheet() {
 
             <Flex gap="3" mt="4" justify="end">
               <AlertDialog.Cancel>
-                <Button className='bg-blue-500 text-black'>
+                <Button className='bg-blue-500 text-black '>
                   Voy a verificar los datos
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button onClick={submit} type='submit' variant="solid" className='bg-red-500'>
+                <Button onClick={submit} type='submit' variant="solid" className='bg-red-500 cursor-pointer'>
                   Cargar definitivamente
                 </Button>
               </AlertDialog.Action>
@@ -247,7 +247,7 @@ function NewSheet() {
 
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button size={"3"} className='bg-blue-500'><ArrowRightIcon color='black' />Siguiente secci&oacute;n</Button>
+            <Button size={"3"} className='bg-blue-500 cursor-pointer'><ArrowRightIcon color='black' />Siguiente secci&oacute;n</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
             <AlertDialog.Title className='text-red-500'>¡Atenci&oacute;n!</AlertDialog.Title>
@@ -257,12 +257,12 @@ function NewSheet() {
 
             <Flex gap="3" mt="4" justify="end">
               <AlertDialog.Cancel>
-                <Button className='bg-blue-500 text-black'>
+                <Button className='bg-blue-500 text-black cursor-pointer'>
                   A&uacute;n no he terminado
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button onClick={SiguienteSeccion} type='submit' variant="solid" className='bg-red-500'>
+                <Button onClick={SiguienteSeccion} type='submit' variant="solid" className='bg-red-500 cursor-pointer'>
                   Ir a la siguiente secci&oacute;n
                 </Button>
               </AlertDialog.Action>

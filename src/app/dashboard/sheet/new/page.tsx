@@ -993,7 +993,7 @@ function New() {
         <div className="flex justify-center mb-5 mt-4 space-x-4">
           <AlertDialog.Root>
             <AlertDialog.Trigger>
-              <Button radius='full' size={"3"} className='bg-green-400 text-black'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
+              <Button radius='full' size={"3"} className='bg-green-400 text-black cursor-pointer'><DoubleArrowUpIcon color='black' />Cargar datos</Button>
             </AlertDialog.Trigger>
             <AlertDialog.Content>
               <AlertDialog.Title className='text-red-500'>¡Atencion!</AlertDialog.Title>
@@ -1004,12 +1004,12 @@ function New() {
 
               <Flex gap="3" mt="4" justify="end">
                 <AlertDialog.Cancel>
-                  <Button className='bg-blue-500 text-black'>
+                  <Button className='bg-blue-500 text-black cursor-pointer'>
                     Voy a verificar los datos
                   </Button>
                 </AlertDialog.Cancel>
                 <AlertDialog.Action>
-                  <Button onClick={submit} type='submit' variant="solid" className='bg-red-500'>
+                  <Button onClick={submit} type='submit' variant="solid" className='bg-red-500 cursor-pointer'>
                     Cargar definitivamente
                   </Button>
                 </AlertDialog.Action>
