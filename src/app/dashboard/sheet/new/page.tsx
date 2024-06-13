@@ -987,7 +987,7 @@ function New() {
           </div >
         </div >
         <div className='grid grid-cols-2 md:grid-cols-1 gap-4 mx-40 my-5'>
-          <Input label='Observaciones' name='observaciones' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: false } }} type='number'></Input>
+          <Input label='Observaciones' name='observaciones' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: false } }} type='text'></Input>
           {errors.p75 && <span className="text-red-500">{errors.p75.message}</span>}
         </div>
         <div className="flex justify-center mb-5 mt-4 space-x-4">

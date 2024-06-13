@@ -8,52 +8,53 @@ datasource db {
 }
 
 model preguntas_gral {
-  id_pregunta_gral Int @id @default(autoincrement())
+  id_pregunta_gral  Int               @id @default(autoincrement())
   pregunta_gral_txt String
-  respuestas_gral respuestas_gral[]
+  respuestas_gral   respuestas_gral[]
 }
 
 model respuestas_gral {
-  id_rg Int @id @default(autoincrement())
-  CodCasa String
-  id_pregunta_gral Int
+  id_rg                Int             @id @default(autoincrement())
+  id_CodCasa           Int
+  id_pregunta_gral     Int
   respuesta_gral_valor String
-  preguntas_gral preguntas_gral @relation(fields: [id_pregunta_gral], references: [id_pregunta_gral])
-  Encuestas Encuestas @relation(fields: [CodCasa], references: [CodCasa])
+  pregunta_gral        preguntas_gral? @relation(fields: [id_pregunta_gral], references: [id_pregunta_gral])
+  Encuesta             Encuestas?      @relation(fields: [id_CodCasa], references: [id_CodCasa])
 }
 
 model Encuestas {
-  CodCasa String @id
-  id_Usuario Int
-  fecha DateTime @default(now()) @db.Timestamptz(3)
-  Usuarios Usuarios @relation(fields: [id_Usuario], references: [id_Usuario])
-  respuestas_gral respuestas_gral[]
+  id_CodCasa        Int                 @id @default(autoincrement())
+  CodCasa           String              @unique
+  id_Usuario        Int
+  fecha             String
+  respuestas_gral   respuestas_gral[]
   respuestas_estruc respuestas_estruc[]
+  Usuario           Usuarios[]
 }
 
 model Usuarios {
-  id_Usuario  Int @id @default(autoincrement())
-  id_censista Int 
-  Nombre String
-  Apellido String
-  Email String @unique
-  Password String
-  Tipo_usuario String 
-  Creado DateTime @default(now())
-  Encuestas Encuestas[]
+  id_Usuario   Int         @id @default(autoincrement())
+  id_censista  Int
+  Nombre       String
+  Apellido     String
+  Email        String      @unique
+  Password     String
+  Tipo_usuario String
+  Creado       String
+  Encuestas    Encuestas[]
 }
 
 model preguntas_estruc {
-  id_estruct_preg Int @id
-  estruc_preg_txt String
+  id_estruct_preg   Int                 @id @default(autoincrement())
+  estruc_preg_txt   String
   respuestas_estruc respuestas_estruc[]
 }
 
 model respuestas_estruc {
-  id_re Int @id @default(autoincrement())
-  CodCasa String
-  id_estruct_preg Int
+  id_re            Int               @id @default(autoincrement())
+  id_CodCasa       Int
+  id_estruct_preg  Int
   respuesta_estruc String
-  preguntas_estruc preguntas_estruc @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
-  Encuestas Encuestas @relation(fields: [CodCasa], references: [CodCasa])
+  pregunta_estruc  preguntas_estruc? @relation(fields: [id_estruct_preg], references: [id_estruct_preg])
+  Encuesta         Encuestas        @relation(fields: [id_CodCasa], references: [id_CodCasa])
 }

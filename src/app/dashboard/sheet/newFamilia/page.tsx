@@ -60,9 +60,9 @@ function NewSheet() {
   const onSubmit = handleSubmit(async (data) => {
     console.log(data)
     const res = await axios.post('/api/cargar/familia', data)
-    console.log(res)
+    console.log(res.status)
 
-    if (res.status) {
+    if (res.status == 200) {
       toast.success('¡Datos cargados correctamente!', {
         description: 'Redirigiendo...',
         position: 'top-center',
@@ -71,7 +71,16 @@ function NewSheet() {
         router.refresh();
       }, 3000);
     }
-    else {
+    if(res.status == 201){
+      toast.error('¡El integrante ya existe!', {
+        description: 'Espere',
+        position: 'top-center',
+      })
+      setTimeout(() => {
+        router.refresh();
+      }, 3000);
+    }
+    if(res.status == 400){
       toast.error('¡Error al cargar los datos!', {
         description: 'Por favor intente nuevamente',
         position: 'top-center',
