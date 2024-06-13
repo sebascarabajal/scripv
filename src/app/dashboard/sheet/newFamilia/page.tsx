@@ -71,7 +71,7 @@ function NewSheet() {
         router.refresh();
       }, 3000);
     }
-    if(res.status == 201){
+    if(res.status == 406){
       toast.error('¡El integrante ya existe!', {
         description: 'Espere',
         position: 'top-center',
