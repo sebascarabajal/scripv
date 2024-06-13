@@ -62,18 +62,18 @@ function NewSheet() {
     const res = await axios.post('/api/cargar/familia', data)
     console.log(res.status)
 
-    if (res.status == 200) {
+    if (res.status == 201) {
       toast.success('¡Datos cargados correctamente!', {
-        description: 'Redirigiendo...',
+        description: 'Espere...',
         position: 'top-center',
       })
       setTimeout(() => {
         router.refresh();
       }, 3000);
     }
-    if(res.status == 406){
+    if(res.status == 203){
       toast.error('¡El integrante ya existe!', {
-        description: 'Espere',
+        description: '¡¡¡Verifique!!!',
         position: 'top-center',
       })
       setTimeout(() => {

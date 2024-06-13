@@ -77,7 +77,7 @@ export async function POST(request: Request) {
             const respuestas = respuestasEstruc.flatMap(encuesta => encuesta.respuestas_estruc.map(resp => resp.respuesta_estruc));
 
             if (respuestas.includes(nro_integrante.toString())) {
-                return NextResponse.json({ message: "Not Acceptable" }, { status: 406 });
+                return NextResponse.json({ message: "Not Acceptable" }, { status: 203 });
             } else {
                 console.log(`El valor ${nro_integrante} no se encuentra en el array respuestasEstruc.`);
             }
@@ -182,5 +182,5 @@ export async function POST(request: Request) {
         return NextResponse.json({ message: "Bad Request" }, { status: 400 });
     }
 
-    return NextResponse.json({ message: "Created" }, { status: 201 });
+    return NextResponse.json({ message: "Created"}, { status: 201 });
 }
