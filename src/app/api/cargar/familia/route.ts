@@ -9,6 +9,7 @@ export async function POST(request: Request) {
     const data = await request.json()
     const { sector, manzana, casa, vivienda } = data
     const codCasa = sector + manzana + casa + vivienda
+     
 
 
     const session = await getServerSession(authOptions)

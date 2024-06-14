@@ -6,10 +6,6 @@ import { authOptions } from "@/utils/authOptions";
 export async function POST(request: Request) {
     const data = await request.json()
 
-    const p281 = data.p281
-    const arrayp281 = p281.split('')
-    const listop281 = arrayp281.join(',')
-
     const p37 = data.p37
     const arrayp37 = p37.split('')
     const listop37 = arrayp37.join(',')
@@ -49,6 +45,9 @@ export async function POST(request: Request) {
 
     const { sector, manzana, casa, vivienda } = data
     const codCasa = sector + manzana + casa + vivienda
+
+    const { p281o1, p281o2, p281o3, p281o4, p281o5, p281o6, p281o7, p281o8, p281o9, p281o10, p281o11, p281o12, p281o13 } = data
+    const ampliaciones = p281o1 + "," + p281o2 + "," + p281o3 + "," + p281o4 + "," + p281o5 + "," + p281o6 + "," + p281o7 + "," + p281o8 + "," + p281o9 + "," + p281o10 + "," + p281o11 + "," + p281o12 + "," + p281o13
 
     const { cubierta_a, cubierta_b, cubierta_c, cubierta_d, cubierta_e } = data
     const { cielorraso_a, cielorraso_b, cielorraso_c, cielorraso_d, cielorraso_e } = data
@@ -91,134 +90,153 @@ export async function POST(request: Request) {
     }
 
     try {
-        prisma.$transaction(async (prisma) => {
-            const newBloque = await prisma.$queryRaw`
-                INSERT INTO respuestas_gral("CodCasa", "id_pregunta_gral", "respuesta_gral_valor")
-                VALUES 
-                (${codCasa}, 1, ${data.sector}),
-                (${codCasa}, 2, ${data.manzana}),
-                (${codCasa}, 3, ${data.casa}),
-                (${codCasa}, 4, ${data.vivienda}),
-                (${codCasa}, 5, ${data.hogar}),
-                (${codCasa}, 6, ${data.supervisor}),
-                (${codCasa}, 7, ${data.encuestador}),
-                (${codCasa}, 8, ${data.responde}),
-                (${codCasa}, 9, ${data.p20}),
-                (${codCasa}, 10, ${data.p21}),
-                (${codCasa}, 11, ${data.p22}),
-                (${codCasa}, 12, ${data.p23}),
-                (${codCasa}, 13, ${data.p24}),
-                (${codCasa}, 14, ${data.p25}),
-                (${codCasa}, 15, ${data.p251}),
-                (${codCasa}, 16, ${data.p26}),
-                (${codCasa}, 17, ${data.p261}),
-                (${codCasa}, 18, ${data.p262}),
-                (${codCasa}, 19, ${data.p27}),
-                (${codCasa}, 20, ${data.p28}),
-                (${codCasa}, 21, ${listop281}),
-                (${codCasa}, 22, ${data.p29}),
-                (${codCasa}, 23, ${data.p291}),
-                (${codCasa}, 24, ${data.p301}),
-                (${codCasa}, 25, ${data.p302}),
-                (${codCasa}, 26, ${data.p311}),
-                (${codCasa}, 27, ${data.p312}),
-                (${codCasa}, 28, ${data.p313}),
-                (${codCasa}, 29, ${data.p314}),
-                (${codCasa}, 30, ${data.p32}),
-                (${codCasa}, 31, ${data.p321}),
-                (${codCasa}, 32, ${data.p322}),
-                (${codCasa}, 33, ${data.p323}),
-                (${codCasa}, 34, ${data.p324}),
-                (${codCasa}, 35, ${data.p325}),
-                (${codCasa}, 36, ${data.p331}),
-                (${codCasa}, 37, ${data.p332}),
-                (${codCasa}, 38, ${data.p333}),
-                (${codCasa}, 39, ${data.p334}),
-                (${codCasa}, 40, ${data.p341}),
-                (${codCasa}, 41, ${data.p342}),
-                (${codCasa}, 42, ${data.p35}),
-                (${codCasa}, 43, ${data.p36}),
-                (${codCasa}, 44, ${cubierta}),
-                (${codCasa}, 45, ${cielorraso}),
-                (${codCasa}, 46, ${muro_exterior}),
-                (${codCasa}, 47, ${muro_medio}),
-                (${codCasa}, 48, ${pisoyrevestimiento}),
-                (${codCasa}, 49, ${carpinteria}),
-                (${codCasa}, 50, ${artefactos}),
-                (${codCasa}, 51, ${griferia}),
-                (${codCasa}, 52, ${canieria}),
-                (${codCasa}, 53, ${instalacion_elec}),
-                (${codCasa}, 54, ${instalacion_gas}),
-                (${codCasa}, 55, ${tanque}),
-                (${codCasa}, 56, ${listop37}),
-                (${codCasa}, 57, ${data.p38}),
-                (${codCasa}, 58, ${data.p391}),
-                (${codCasa}, 59, ${data.p392}),
-                (${codCasa}, 60, ${data.p393}),
-                (${codCasa}, 61, ${data.p394}),
-                (${codCasa}, 62, ${data.p395}),
-                (${codCasa}, 63, ${data.p396}),
-                (${codCasa}, 64, ${data.p40}),
-                (${codCasa}, 65, ${listop41}),
-                (${codCasa}, 66, ${listop42}),
-                (${codCasa}, 67, ${data.p43}),
-                (${codCasa}, 68, ${data.p44}),
-                (${codCasa}, 69, ${listop45}),
-                (${codCasa}, 70, ${data.p46}),
-                (${codCasa}, 71, ${listop47}),
-                (${codCasa}, 72, ${data.p481}),
-                (${codCasa}, 73, ${data.p482}),
-                (${codCasa}, 74, ${data.p491}),
-                (${codCasa}, 75, ${data.p492}),
-                (${codCasa}, 76, ${data.p501}),
-                (${codCasa}, 77, ${data.p502}),
-                (${codCasa}, 78, ${data.p503}),
-                (${codCasa}, 79, ${data.p504}),
-                (${codCasa}, 80, ${data.p51}),
-                (${codCasa}, 81, ${data.p521}),
-                (${codCasa}, 82, ${data.p522}),
-                (${codCasa}, 83, ${data.p53}),
-                (${codCasa}, 84, ${listop54}),
-                (${codCasa}, 85, ${data.p55}),
-                (${codCasa}, 86, ${data.p561}),
-                (${codCasa}, 87, ${data.p562}),
-                (${codCasa}, 88, ${listop57}),
-                (${codCasa}, 89, ${data.p58}),
-                (${codCasa}, 90, ${data.p59}),
-                (${codCasa}, 91, ${data.p60}),
-                (${codCasa}, 92, ${data.p61}),
-                (${codCasa}, 93, ${data.p62}),
-                (${codCasa}, 94, ${data.p63}),
-                (${codCasa}, 95, ${data.p631}),
-                (${codCasa}, 96, ${data.p641}),
-                (${codCasa}, 97, ${data.p642}),
-                (${codCasa}, 98, ${data.p643}),
-                (${codCasa}, 99, ${data.p644}),
-                (${codCasa}, 100, ${data.p645}),
-                (${codCasa}, 101, ${data.p65}),
-                (${codCasa}, 102, ${data.p66}),
-                (${codCasa}, 103, ${data.p661}),
-                (${codCasa}, 104, ${data.p67}),
-                (${codCasa}, 105, ${data.p68}),
-                (${codCasa}, 106, ${data.p69}),
-                (${codCasa}, 107, ${data.p70}),
-                (${codCasa}, 108, ${listop701}),
-                (${codCasa}, 109, ${data.p71}),
-                (${codCasa}, 110, ${data.p711}),
-                (${codCasa}, 111, ${data.p72}),
-                (${codCasa}, 112, ${listop73}),
-                (${codCasa}, 113, ${data.p74}),
-                (${codCasa}, 114, ${data.p75}),
-                (${codCasa}, 115, ${data.observaciones}),
-                (${codCasa}, 116, ${data.lote})
-            `
+        const encuesta = await prisma.encuestas.findUnique({
+            where: {
+                CodCasa: codCasa
+            },
+            select: {
+                CodCasa: true
+            }
         })
-    }
 
+        if (encuesta) {
+            const idCasa = await prisma.encuestas.findUnique({
+                where: {
+                    CodCasa: codCasa
+                },
+                select: {
+                    id_CodCasa: true
+                }
+            })
+
+            const idcodcasa = idCasa?.id_CodCasa
+
+
+            const newBloque = await prisma.$queryRaw`
+                INSERT INTO respuestas_gral("id_CodCasa", "id_pregunta_gral", "respuesta_gral_valor")
+                VALUES 
+                (${idcodcasa}, 1, ${data.sector}),
+                (${idcodcasa}, 2, ${data.manzana}),
+                (${idcodcasa}, 3, ${data.casa}),
+                (${idcodcasa}, 4, ${data.vivienda}),
+                (${idcodcasa}, 5, ${data.hogar}),
+                (${idcodcasa}, 6, ${data.supervisor}),
+                (${idcodcasa}, 7, ${data.encuestador}),
+                (${idcodcasa}, 8, ${data.responde}),
+                (${idcodcasa}, 9, ${data.p20}),
+                (${idcodcasa}, 10, ${data.p21}),
+                (${idcodcasa}, 11, ${data.p22}),
+                (${idcodcasa}, 12, ${data.p23}),
+                (${idcodcasa}, 13, ${data.p24}),
+                (${idcodcasa}, 14, ${data.p25}),
+                (${idcodcasa}, 15, ${data.p251}),
+                (${idcodcasa}, 16, ${data.p26}),
+                (${idcodcasa}, 17, ${data.p261}),
+                (${idcodcasa}, 18, ${data.p262}),
+                (${idcodcasa}, 19, ${data.p27}),
+                (${idcodcasa}, 20, ${data.p28}),
+                (${idcodcasa}, 21, ${ampliaciones}),
+                (${idcodcasa}, 22, ${data.p29}),
+                (${idcodcasa}, 23, ${data.p291}),
+                (${idcodcasa}, 24, ${data.p301}),
+                (${idcodcasa}, 25, ${data.p302}),
+                (${idcodcasa}, 26, ${data.p311}),
+                (${idcodcasa}, 27, ${data.p312}),
+                (${idcodcasa}, 28, ${data.p313}),
+                (${idcodcasa}, 29, ${data.p314}),
+                (${idcodcasa}, 30, ${data.p32}),
+                (${idcodcasa}, 31, ${data.p321}),
+                (${idcodcasa}, 32, ${data.p322}),
+                (${idcodcasa}, 33, ${data.p323}),
+                (${idcodcasa}, 34, ${data.p324}),
+                (${idcodcasa}, 35, ${data.p325}),
+                (${idcodcasa}, 36, ${data.p331}),
+                (${idcodcasa}, 37, ${data.p332}),
+                (${idcodcasa}, 38, ${data.p333}),
+                (${idcodcasa}, 39, ${data.p334}),
+                (${idcodcasa}, 40, ${data.p341}),
+                (${idcodcasa}, 41, ${data.p342}),
+                (${idcodcasa}, 42, ${data.p35}),
+                (${idcodcasa}, 43, ${data.p36}),
+                (${idcodcasa}, 44, ${cubierta}),
+                (${idcodcasa}, 45, ${cielorraso}),
+                (${idcodcasa}, 46, ${muro_exterior}),
+                (${idcodcasa}, 47, ${muro_medio}),
+                (${idcodcasa}, 48, ${pisoyrevestimiento}),
+                (${idcodcasa}, 49, ${carpinteria}),
+                (${idcodcasa}, 50, ${artefactos}),
+                (${idcodcasa}, 51, ${griferia}),
+                (${idcodcasa}, 52, ${canieria}),
+                (${idcodcasa}, 53, ${instalacion_elec}),
+                (${idcodcasa}, 54, ${instalacion_gas}),
+                (${idcodcasa}, 55, ${tanque}),
+                (${idcodcasa}, 56, ${listop37}),
+                (${idcodcasa}, 57, ${data.p38}),
+                (${idcodcasa}, 58, ${data.p391}),
+                (${idcodcasa}, 59, ${data.p392}),
+                (${idcodcasa}, 60, ${data.p393}),
+                (${idcodcasa}, 61, ${data.p394}),
+                (${idcodcasa}, 62, ${data.p395}),
+                (${idcodcasa}, 63, ${data.p396}),
+                (${idcodcasa}, 64, ${data.p40}),
+                (${idcodcasa}, 65, ${listop41}),
+                (${idcodcasa}, 66, ${listop42}),
+                (${idcodcasa}, 67, ${data.p43}),
+                (${idcodcasa}, 68, ${data.p44}),
+                (${idcodcasa}, 69, ${listop45}),
+                (${idcodcasa}, 70, ${data.p46}),
+                (${idcodcasa}, 71, ${listop47}),
+                (${idcodcasa}, 72, ${data.p481}),
+                (${idcodcasa}, 73, ${data.p482}),
+                (${idcodcasa}, 74, ${data.p491}),
+                (${idcodcasa}, 75, ${data.p492}),
+                (${idcodcasa}, 76, ${data.p501}),
+                (${idcodcasa}, 77, ${data.p502}),
+                (${idcodcasa}, 78, ${data.p503}),
+                (${idcodcasa}, 79, ${data.p504}),
+                (${idcodcasa}, 80, ${data.p51}),
+                (${idcodcasa}, 81, ${data.p521}),
+                (${idcodcasa}, 82, ${data.p522}),
+                (${idcodcasa}, 83, ${data.p53}),
+                (${idcodcasa}, 84, ${listop54}),
+                (${idcodcasa}, 85, ${data.p55}),
+                (${idcodcasa}, 86, ${data.p561}),
+                (${idcodcasa}, 87, ${data.p562}),
+                (${idcodcasa}, 88, ${listop57}),
+                (${idcodcasa}, 89, ${data.p58}),
+                (${idcodcasa}, 90, ${data.p59}),
+                (${idcodcasa}, 91, ${data.p60}),
+                (${idcodcasa}, 92, ${data.p61}),
+                (${idcodcasa}, 93, ${data.p62}),
+                (${idcodcasa}, 94, ${data.p63}),
+                (${idcodcasa}, 95, ${data.p631}),
+                (${idcodcasa}, 96, ${data.p641}),
+                (${idcodcasa}, 97, ${data.p642}),
+                (${idcodcasa}, 98, ${data.p643}),
+                (${idcodcasa}, 99, ${data.p644}),
+                (${idcodcasa}, 100, ${data.p645}),
+                (${idcodcasa}, 101, ${data.p65}),
+                (${idcodcasa}, 102, ${data.p66}),
+                (${idcodcasa}, 103, ${data.p661}),
+                (${idcodcasa}, 104, ${data.p67}),
+                (${idcodcasa}, 105, ${data.p68}),
+                (${idcodcasa}, 106, ${data.p69}),
+                (${idcodcasa}, 107, ${data.p70}),
+                (${idcodcasa}, 108, ${listop701}),
+                (${idcodcasa}, 109, ${data.p71}),
+                (${idcodcasa}, 110, ${data.p711}),
+                (${idcodcasa}, 111, ${data.p72}),
+                (${idcodcasa}, 112, ${listop73}),
+                (${idcodcasa}, 113, ${data.p74}),
+                (${idcodcasa}, 114, ${data.p75}),
+                (${idcodcasa}, 115, ${data.observaciones}),
+                (${idcodcasa}, 116, ${data.lote})
+            `
+        }
+    }
     catch (error) {
-        console.log(error)
-        return NextResponse.json({ status: 500 })
+        return NextResponse.json({ message: "Not Acceptable" }, { status: 400 });
     }
 
-    return NextResponse.json({ status: 201 })
+    return NextResponse.json({ message: "Created"}, { status: 201 });
 }
