@@ -6,6 +6,10 @@ import { authOptions } from "@/utils/authOptions";
 export async function POST(request: Request) {
     const data = await request.json()
 
+    const p251 = data.p251
+    const arrayp251 = p251.split('')
+    const listop251 = arrayp251.join(',')
+
     const p37 = data.p37
     const arrayp37 = p37.split('')
     const listop37 = arrayp37.join(',')
@@ -142,7 +146,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 12, ${data.p23}),
                 (${idcodcasa}, 13, ${data.p24}),
                 (${idcodcasa}, 14, ${data.p25}),
-                (${idcodcasa}, 15, ${data.p251}),
+                (${idcodcasa}, 15, ${listop251}),
                 (${idcodcasa}, 16, ${data.p26}),
                 (${idcodcasa}, 17, ${data.p261}),
                 (${idcodcasa}, 18, ${data.p262}),

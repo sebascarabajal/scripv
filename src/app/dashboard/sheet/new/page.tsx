@@ -313,7 +313,7 @@ function New() {
             {errors.p25 && <span className="text-red-500">{errors.p25.message}</span>}
           </div >
           <div>
-            <Input label='25.1Tipo de alteraciones' name='p251' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
+            <Input label='25.1Tipo de alteraciones - Multi' name='p251' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }}} type='number'></Input>
             {errors.p251 && <span className="text-red-500">{errors.p251.message}</span>}
           </div >
           <div>
