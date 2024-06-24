@@ -34,6 +34,15 @@ export async function POST(request: Request) {
     const arrayp57 = p57.split('');
     const listop57 = arrayp57.join(',');
 
+    const p59 = data.p59;
+    const arrayp59 = p59.split('');
+    const listop59 = arrayp59.join(',');
+
+    const p62 = data.p62;
+    const arrayp62 = p62.split('');
+    const listop62 = arrayp62.join(',');
+
+
     const p701 = data.p701;
     const arrayp701 = p701.split('');
     const listop701 = arrayp701.join(',');
@@ -41,6 +50,10 @@ export async function POST(request: Request) {
     const p73 = data.p73;
     const arrayp73 = p73.split('');
     const listop73 = arrayp73.join(',');
+
+    const p74 = data.p74;
+    const arrayp74 = p74.split('');
+    const listop74 = arrayp74.join(',');
 
 
     const { sector, manzana, casa, vivienda } = data
@@ -204,10 +217,10 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 87, ${data.p562}),
                 (${idcodcasa}, 88, ${listop57}),
                 (${idcodcasa}, 89, ${data.p58}),
-                (${idcodcasa}, 90, ${data.p59}),
+                (${idcodcasa}, 90, ${listop59}),
                 (${idcodcasa}, 91, ${data.p60}),
                 (${idcodcasa}, 92, ${data.p61}),
-                (${idcodcasa}, 93, ${data.p62}),
+                (${idcodcasa}, 93, ${listop62}),
                 (${idcodcasa}, 94, ${data.p63}),
                 (${idcodcasa}, 95, ${data.p631}),
                 (${idcodcasa}, 96, ${data.p641}),
@@ -227,11 +240,14 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 110, ${data.p711}),
                 (${idcodcasa}, 111, ${data.p72}),
                 (${idcodcasa}, 112, ${listop73}),
-                (${idcodcasa}, 113, ${data.p74}),
+                (${idcodcasa}, 113, ${listop74}),
                 (${idcodcasa}, 114, ${data.p75}),
                 (${idcodcasa}, 115, ${data.observaciones}),
                 (${idcodcasa}, 116, ${data.lote})
             `
+        }
+        else{
+            return NextResponse.json({ message: "Not Acceptable" }, { status: 203 });
         }
     }
     catch (error) {

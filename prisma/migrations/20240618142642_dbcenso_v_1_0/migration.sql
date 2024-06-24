@@ -21,7 +21,7 @@ CREATE TABLE "Encuestas" (
     "id_CodCasa" SERIAL NOT NULL,
     "CodCasa" TEXT NOT NULL,
     "id_Usuario" INTEGER NOT NULL,
-    "fecha" TIMESTAMP(3) NOT NULL,
+    "fecha" TEXT NOT NULL,
 
     CONSTRAINT "Encuestas_pkey" PRIMARY KEY ("id_CodCasa")
 );
@@ -35,7 +35,7 @@ CREATE TABLE "Usuarios" (
     "Email" TEXT NOT NULL,
     "Password" TEXT NOT NULL,
     "Tipo_usuario" TEXT NOT NULL,
-    "Creado" TIMESTAMP(3) NOT NULL,
+    "Creado" TEXT NOT NULL,
 
     CONSTRAINT "Usuarios_pkey" PRIMARY KEY ("id_Usuario")
 );

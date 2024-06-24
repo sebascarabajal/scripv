@@ -211,7 +211,17 @@ function New() {
         router.push("/dashboard");
         router.refresh();
       }, 3000);
-    }else{
+    }
+    if(res.status == 203){
+      toast.error('¡Codigo de barrio/casa erroneo!', {
+        description: '¡¡¡Verifique!!!',
+        position: 'top-center',
+      })
+      setTimeout(() => {
+        router.refresh();
+      }, 3000);
+    }
+    if(res.status == 400){
       toast.error('¡Error al cargar los datos!', {
         description: 'Por favor intente nuevamente',
         position: 'top-center',
@@ -948,7 +958,7 @@ function New() {
             {errors.p58 && <span className="text-red-500">{errors.p58.message}</span>}
           </div >
           <div>
-            <Input label='59.Que espacios faltan' name='p59' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
+            <Input label='59.Que espacios faltan - Multi' name='p59' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }}} type='number'></Input>
             {errors.p59 && <span className="text-red-500">{errors.p59.message}</span>}
           </div >
           <div>
@@ -960,7 +970,7 @@ function New() {
             {errors.p61 && <span className="text-red-500">{errors.p61.message}</span>}
           </div >
           <div>
-            <Input label='62.Que locales hacen falta' name='p62' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
+            <Input label='62.Que locales hacen falta - Multi' name='p62' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }}} type='number'></Input>
             {errors.p62 && <span className="text-red-500">{errors.p62.message}</span>}
           </div >
           <div>
@@ -1049,7 +1059,7 @@ function New() {
             {errors.p73 && <span className="text-red-500">{errors.p73.message}</span>}
           </div >
           <div>
-            <Input label='74.Como se traslada en el barrio' name='p74' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='74.Como se traslada en el barrio-Multi' name='p74' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }}} type='number'></Input>
             {errors.p74 && <span className="text-red-500">{errors.p74.message}</span>}
           </div >
           <div>
