@@ -538,7 +538,7 @@ function New() {
             {errors.cielorraso_a && <span className="text-red-500">{errors.cielorraso_a.message}</span>}
           </div >
           <div>
-            <Input label='Grieta' name='cielorraso_a' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='Grieta' name='cielorraso_b' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.cielorraso_a && <span className="text-red-500">{errors.cielorraso_a.message}</span>}
           </div >
           <div>

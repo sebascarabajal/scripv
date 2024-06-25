@@ -150,7 +150,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 13, ${data.p24}),
                 (${idcodcasa}, 14, ${data.p25}),
                 (${idcodcasa}, 15, ${listop251}),
-(${idcodcasa}, 16, ${data.p26}),
+                (${idcodcasa}, 16, ${data.p26}),
                 (${idcodcasa}, 17, ${data.p261}),
                 (${idcodcasa}, 18, ${data.p262}),
                 (${idcodcasa}, 19, ${data.p27}),
@@ -253,7 +253,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 116, ${data.lote})
             `
         }
-        else{
+        else {
             return NextResponse.json({ message: "Not Acceptable" }, { status: 203 });
         }
     }
@@ -261,5 +261,5 @@ export async function POST(request: Request) {
         return NextResponse.json({ message: "Not Acceptable" }, { status: 400 });
     }
 
-    return NextResponse.json({ message: "Created"}, { status: 201 });
+    return NextResponse.json({ message: "Created" }, { status: 201 });
 }
