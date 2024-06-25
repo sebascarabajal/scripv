@@ -1027,7 +1027,7 @@ function New() {
             {errors.p67 && <span className="text-red-500">{errors.p67.message}</span>}
           </div>
           <div>
-            <Input label='68.Medio de transporte que utiliza' name='p68' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
+            <Input label='68.Medio de transporte - Multi' name='p68' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-4]*$/ } }} type='number'></Input>
             {errors.p68 && <span className="text-red-500">{errors.p68.message}</span>}
           </div >
           <div>
