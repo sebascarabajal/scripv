@@ -46,6 +46,9 @@ export async function POST(request: Request) {
     const arrayp62 = p62.split('');
     const listop62 = arrayp62.join(',');
 
+    const p68 = data.p68;
+    const arrayp68 = p68.split('');
+    const listop68 = arrayp68.join(',');
 
     const p701 = data.p701;
     const arrayp701 = p701.split('');
@@ -147,7 +150,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 13, ${data.p24}),
                 (${idcodcasa}, 14, ${data.p25}),
                 (${idcodcasa}, 15, ${listop251}),
-                (${idcodcasa}, 16, ${data.p26}),
+(${idcodcasa}, 16, ${data.p26}),
                 (${idcodcasa}, 17, ${data.p261}),
                 (${idcodcasa}, 18, ${data.p262}),
                 (${idcodcasa}, 19, ${data.p27}),
@@ -236,7 +239,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 102, ${data.p66}),
                 (${idcodcasa}, 103, ${data.p661}),
                 (${idcodcasa}, 104, ${data.p67}),
-                (${idcodcasa}, 105, ${data.p68}),
+                (${idcodcasa}, 105, ${listop68}),
                 (${idcodcasa}, 106, ${data.p69}),
                 (${idcodcasa}, 107, ${data.p70}),
                 (${idcodcasa}, 108, ${listop701}),
