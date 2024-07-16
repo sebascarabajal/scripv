@@ -282,7 +282,7 @@ function New() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='20.Habitabilidad' name='p20' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
+            <Input label='20.Habitabilidad - Multi' name='p20' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
             {errors.p20 && <span className="text-red-500">{errors.p20.message}</span>}
           </div>
           <div>
@@ -1031,7 +1031,7 @@ function New() {
             {errors.p68 && <span className="text-red-500">{errors.p68.message}</span>}
           </div >
           <div>
-            <Input label='69.Fin del uso del transporte publico' name='p69' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
+            <Input label='69.Uso del transporte publico - Multi' name='p69' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-6]*$/ } }} type='number'></Input>
             {errors.p69 && <span className="text-red-500">{errors.p69.message}</span>}
           </div >
           <div>

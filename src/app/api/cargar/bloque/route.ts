@@ -6,6 +6,10 @@ import { authOptions } from "@/utils/authOptions";
 export async function POST(request: Request) {
     const data = await request.json()
 
+    const p20 = data.p20
+    const arrayp20 = p20.split('')
+    const listop20 = arrayp20.join(',')
+
     const p251 = data.p251
     const arrayp251 = p251.split('')
     const listop251 = arrayp251.join(',')
@@ -49,6 +53,10 @@ export async function POST(request: Request) {
     const p68 = data.p68;
     const arrayp68 = p68.split('');
     const listop68 = arrayp68.join(',');
+
+    const p69 = data.p69
+    const arrayp69 = p69.split('')
+    const listop69 = arrayp69.join(',')
 
     const p701 = data.p701;
     const arrayp701 = p701.split('');
@@ -143,7 +151,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 6, ${data.supervisor}),
                 (${idcodcasa}, 7, ${data.encuestador}),
                 (${idcodcasa}, 8, ${data.responde}),
-                (${idcodcasa}, 9, ${data.p20}),
+                (${idcodcasa}, 9, ${listop20}),
                 (${idcodcasa}, 10, ${data.p21}),
                 (${idcodcasa}, 11, ${data.p22}),
                 (${idcodcasa}, 12, ${data.p23}),
@@ -240,7 +248,7 @@ export async function POST(request: Request) {
                 (${idcodcasa}, 103, ${data.p661}),
                 (${idcodcasa}, 104, ${data.p67}),
                 (${idcodcasa}, 105, ${listop68}),
-                (${idcodcasa}, 106, ${data.p69}),
+                (${idcodcasa}, 106, ${listop69}),
                 (${idcodcasa}, 107, ${data.p70}),
                 (${idcodcasa}, 108, ${listop701}),
                 (${idcodcasa}, 109, ${data.p71}),
