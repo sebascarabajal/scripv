@@ -27,6 +27,7 @@ model Encuestas {
   CodCasa           String              @unique
   id_Usuario        Int
   fecha             String
+  status Boolean @default(false)
   respuestas_gral   respuestas_gral[]
   respuestas_estruc respuestas_estruc[]
   Usuario           Usuarios[]

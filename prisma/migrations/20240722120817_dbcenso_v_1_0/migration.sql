@@ -22,6 +22,7 @@ CREATE TABLE "Encuestas" (
     "CodCasa" TEXT NOT NULL,
     "id_Usuario" INTEGER NOT NULL,
     "fecha" TEXT NOT NULL,
+    "status" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Encuestas_pkey" PRIMARY KEY ("id_CodCasa")
 );

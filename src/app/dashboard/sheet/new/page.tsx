@@ -213,7 +213,7 @@ function New() {
       }, 3000);
     }
     if(res.status == 203){
-      toast.error('¡Codigo de barrio/casa erroneo!', {
+      toast.error('¡Datos de la casa erroneos!', {
         description: '¡¡¡Verifique!!!',
         position: 'top-center',
       })

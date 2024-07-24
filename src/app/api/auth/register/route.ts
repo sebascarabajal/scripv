@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt'
 
 export async function POST(request: Request) {
     const data = await request.json()
-    console.log(data.Nombre)
     const salt = await bcrypt.genSalt(10)
     data.Password = await bcrypt.hash(data.Password, salt)
     const currentDate = new Date();

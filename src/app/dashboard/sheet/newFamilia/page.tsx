@@ -72,7 +72,7 @@ function NewSheet() {
       }, 3000);
     }
     if(res.status == 203){
-      toast.error('¡El integrante ya existe!', {
+      toast.error('Estas cargando casa o integrante repetidos', {
         description: '¡¡¡Verifique!!!',
         position: 'top-center',
       })
