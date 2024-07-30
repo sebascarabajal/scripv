@@ -55,8 +55,7 @@ export async function POST(request: Request) {
                     return NextResponse.json({ message: "Not Acceptable" }, { status: 203 });
                 }
                 else {
-                    console.log(status)
-                    console.log("estoy aqui")
+                
                     const idCasa = await prisma.encuestas.findUnique({
                         where: {
                             CodCasa: codCasa
@@ -95,7 +94,7 @@ export async function POST(request: Request) {
                     const { nro_integrante } = data
 
                     const respuestas = respuestasEstruc.flatMap(encuesta => encuesta.respuestas_estruc.map(resp => resp.respuesta_estruc));
-                    console.log("estoy aqui")
+                    
                     if (respuestas.includes(nro_integrante.toString())) {
                         return NextResponse.json({ message: "Not Acceptable" }, { status: 203 });
                     } else {

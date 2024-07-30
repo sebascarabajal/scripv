@@ -247,15 +247,15 @@ function New() {
             {errors.manzana && <span className="text-red-500">{errors.manzana.message}</span>}
           </div>
           <div>
-            <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+            <Input label='Lote' name='lote' control={control} placeholder='Nro de Lote' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
             {errors.lote && <span className="text-red-500">{errors.lote.message}</span>}
           </div>
           <div>
-            <Input label='Casa' name='casa' control={control} placeholder='Nro de casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+            <Input label='Casa' name='casa' control={control} placeholder='Nro de Casa' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
             {errors.casa && <span className="text-red-500">{errors.casa.message}</span>}
           </div>
           <div>
-            <Input label='Vivienda' name='vivienda' control={control} placeholder='Nro de vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+            <Input label='Vivienda' name='vivienda' control={control} placeholder='Nro de Vivienda' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
             {errors.vivienda && <span className="text-red-500">{errors.vivienda.message}</span>}
           </div>
           <div>
@@ -301,7 +301,7 @@ function New() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-40 my-5">
           <div>
-            <Input label='23.Provicion agua' name='p23' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
+            <Input label='23.Provision agua' name='p23' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true }, pattern: { message: "Fuera de rango", value: /^[0-3]*$/ } }} type='number'></Input>
             {errors.p23 && <span className="text-red-500">{errors.p23.message}</span>}
           </div>
           <div>
@@ -841,7 +841,7 @@ function New() {
             {errors.p395 && <span className="text-red-500">{errors.p395.message}</span>}
           </div >
           <div>
-            <Input label='39.6.Disponibilidad de zombras' name='p396' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
+            <Input label='39.6.Disponibilidad de sombras' name='p396' control={control} placeholder='' rules={{ required: { message: "¡Se requiere este dato", value: true } }} type='number'></Input>
             {errors.p396 && <span className="text-red-500">{errors.p396.message}</span>}
           </div >
           <div>
