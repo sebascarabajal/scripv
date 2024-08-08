@@ -71,8 +71,8 @@ export async function POST(request: Request) {
     const listop74 = arrayp74.join(',');
 
 
-    const { sector, manzana, casa, vivienda } = data
-    const codCasa = sector + manzana + casa + vivienda
+    const { sector, manzana, lote, casa, vivienda } = data
+    const codCasa = sector + manzana + lote + casa + vivienda
 
     const { p281o1, p281o2, p281o3, p281o4, p281o5, p281o6, p281o7, p281o8, p281o9, p281o10, p281o11, p281o12, p281o13 } = data
     const ampliaciones = p281o1 + "," + p281o2 + "," + p281o3 + "," + p281o4 + "," + p281o5 + "," + p281o6 + "," + p281o7 + "," + p281o8 + "," + p281o9 + "," + p281o10 + "," + p281o11 + "," + p281o12 + "," + p281o13
