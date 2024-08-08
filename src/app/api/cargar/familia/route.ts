@@ -7,8 +7,8 @@ import { authOptions } from "@/utils/authOptions";
 export async function POST(request: Request) {
 
     const data = await request.json()
-    const { sector, manzana, casa, vivienda } = data
-    const codCasa = sector + manzana + casa + vivienda
+    const { sector, manzana, lote, casa, vivienda } = data
+    const codCasa = sector + manzana + lote + casa + vivienda
 
     const session = await getServerSession(authOptions)
 
