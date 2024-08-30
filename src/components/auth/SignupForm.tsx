@@ -146,7 +146,7 @@ function SignupForm() {
                     <Controller
                         name='Password'
                         control={control}
-                        rules={{ required: { message: "¡Se requiere una Contraseña!", value: true }, minLength: { message: "¡La contraseña debe ser de 6 carácteres o más!", value: 6 }, maxLength: { message: "¡La contraseña debe ser de 20 carácteres o menos!", value: 16 }, pattern: { message: "¡La contraseña debe contener al menos un número!", value: /.*[0-9].*/ } }}
+                        rules={{ required: { message: "¡Se requiere una Contraseña!", value: true }, minLength: { message: "¡La contraseña debe ser de 6 carácteres o más!", value: 6 }, maxLength: { message: "¡La contraseña debe ser de 20 carácteres o menos!", value: 20 }, pattern: { message: "¡La contraseña debe contener al menos un número!", value: /.*[0-9].*/ } }}
                         render={({ field }) => {
                             return (
                                 <TextFieldInput type='password' placeholder='*********' {...field}></TextFieldInput>

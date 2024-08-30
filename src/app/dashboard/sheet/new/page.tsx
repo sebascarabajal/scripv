@@ -243,7 +243,7 @@ function New() {
             {errors.sector && <span className="text-red-500">{errors.sector.message}</span>}
           </div>
           <div>
-            <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true } }} type='number'></Input>
+            <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }, maxLength: { message: "Exceso de letra/número", value: 2 } }} type='text'></Input>
             {errors.manzana && <span className="text-red-500">{errors.manzana.message}</span>}
           </div>
           <div>

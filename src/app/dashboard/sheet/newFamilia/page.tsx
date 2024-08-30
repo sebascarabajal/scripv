@@ -99,11 +99,11 @@ function NewSheet() {
           <InputRadix name='sector' label='Sector: ' control={control} />
         </div>
         <div>
-          <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Fuera de rango", value: /^[0-9]*$/ } }} type='number'></Input>
+          <Input label='Manzana' name='manzana' control={control} placeholder='Nro de Manzana' rules={{ required: { message: "¡Se requiere este dato!", value: true }, maxLength: { message: "Exceso de letra/número", value: 2 }}} type='text'></Input>
           {errors.manzana && <p className="text-red-500">{errors.manzana.message}</p>}
         </div>
         <div>
-          <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo numeros!", value: /^[0-9]*$/ } }} type='number'></Input>
+          <Input label='Lote' name='lote' control={control} placeholder='Nro de lote' rules={{ required: { message: "¡Se requiere este dato!", value: true }, pattern: { message: "Solo números!", value: /^[0-9]*$/ } }} type='number'></Input>
           {errors.lote && <span className="text-red-500">{errors.lote.message}</span>}
         </div>
         <div>
